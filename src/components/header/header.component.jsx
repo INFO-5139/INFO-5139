@@ -1,10 +1,29 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectAmount } from "../../redux/cart/cart.selector";
+import {
+  HeaderContainer,
+  HeaderLeftPart,
+  HeaderRightPart,
+  LogInButton,
+  CartButton,
+} from "./header.styles";
+import { Icon } from "@iconify/react";
+import Navigation from "../navigation/navigation.component";
 
 const Header = () => {
-  const amount = useSelector(selectAmount);
-  return <header>HEADER {amount}</header>;
+  return (
+    <HeaderContainer>
+      <HeaderLeftPart>
+        <img src="" alt="Logo" style={{ marginRight: "60px" }} />
+        <Navigation color="#333" />
+      </HeaderLeftPart>
+      <HeaderRightPart>
+        <LogInButton>Log In</LogInButton>
+        <CartButton>
+          <Icon icon="ic:round-shopping-cart" width={30} height={30} />
+        </CartButton>
+      </HeaderRightPart>
+    </HeaderContainer>
+  );
 };
 
 export default Header;
