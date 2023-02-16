@@ -8,9 +8,11 @@ import {
   FirstScreenContainer,
   CTAImage,
   ImageContainer,
+  HeadingTwo,
 } from "./home-page.styles";
 import Image from "../../assets/main_image.jpg";
 import { useNavigate } from "react-router-dom";
+import ProductItem from "../../components/product-item/product-item.component";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -38,6 +40,8 @@ const HomePage = () => {
           <CTAImage src={Image} alt="Flower Bucket" />
         </ImageContainer>
       </FirstScreenContainer>
+      <HeadingTwo>Our winter collection</HeadingTwo>
+      <ProductItem />
     </HomePageContainer>
   );
 };

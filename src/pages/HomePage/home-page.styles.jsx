@@ -15,6 +15,7 @@ export const FirstScreenContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
 `;
 
 export const HeadingOne = styled.h1`
@@ -60,4 +61,8 @@ export const CTAImage = styled.img`
   &:hover {
     transform: scale(1.05);
   }
+`;
+
+export const HeadingTwo = styled.h2`
+  font-size: 42px;
 `;
