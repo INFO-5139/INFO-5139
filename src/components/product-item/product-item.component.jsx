@@ -6,21 +6,22 @@ import {
   ProductItemTitle,
   ProductPrice,
   ItemButton,
+  ProductImageContainer,
 } from "./product-item.styles";
 
-const ProductItem = () => {
+const ProductItem = ({ item }) => {
   return (
     <ProductItemContainer>
-      <div>
-        <img src={ProductImage} alt="Cactus" />
-      </div>
-      <ProductItemTitle>Smallest Flower</ProductItemTitle>
+      <ProductImageContainer>
+        <img src={item.image} alt="Cactus" />
+      </ProductImageContainer>
+      <ProductItemTitle>{item.name}</ProductItemTitle>
       <CategoriesContainer>
-        <span>Flower</span>
-        <span>Small</span>
-        <span>Stones</span>
+        {item.tags.map((t) => (
+          <span>{t}</span>
+        ))}
       </CategoriesContainer>
-      <ProductPrice>$19.00</ProductPrice>
+      <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
       <ItemButton>Add to cart</ItemButton>
     </ProductItemContainer>
   );
