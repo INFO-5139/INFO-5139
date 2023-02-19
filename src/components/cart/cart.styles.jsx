@@ -38,3 +38,29 @@ export const CartItemHeadings = styled.div`
     }
   }
 `;
+
+export const TotalText = styled.p`
+  font-weight: 700;
+  font-size: 24px;
+
+  span {
+    color: #388b37;
+  }
+`;
+
+export const CartBottomContainer = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const CartButton = styled.button`
+  background-color: #388b37;
+  border-radius: 30px;
+  font-size: 22px;
+  border: none;
+  color: #fff;
+  padding: 14px 40px;
+  cursor: pointer;
+`;

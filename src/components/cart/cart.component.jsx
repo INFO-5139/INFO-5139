@@ -1,5 +1,12 @@
 import React from "react";
-import { CartContainer, CartItemHeadings, Overlay } from "./cart.styles";
+import {
+  CartBottomContainer,
+  CartButton,
+  CartContainer,
+  CartItemHeadings,
+  Overlay,
+  TotalText,
+} from "./cart.styles";
 import { HeadingTwo } from "../../pages/HomePage/home-page.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { updateIsActive } from "../../redux/cart/cart.reducer";
@@ -9,6 +16,7 @@ import { selectCartItems } from "../../redux/cart/cart.selector";
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
+
   return (
     <>
       <Overlay
@@ -31,6 +39,20 @@ const Cart = () => {
             <CartItem item={item} key={item.id} />
           ))}
         </div>
+
+        <CartBottomContainer>
+          <TotalText>
+            Total:
+            <span>
+              $
+              {cartItems
+                .reduce((acc, i) => (acc += i.price * i.quantity), 0)
+                .toFixed(2)}
+            </span>
+          </TotalText>
+
+          <CartButton>Next Step</CartButton>
+        </CartBottomContainer>
       </CartContainer>
     </>
   );
