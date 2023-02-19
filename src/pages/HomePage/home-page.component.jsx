@@ -28,28 +28,29 @@ const HomePage = () => {
     },
     {
       id: nanoid(),
-      name: "Smallest Flower",
-      price: 19,
-      tags: ["Flower", "Small", "Stone"],
+      name: "Big Pine Tree",
+      price: 25,
+      tags: ["Tree", "Pine", "Wood"],
       image: ProductImage,
     },
     {
       id: nanoid(),
-      name: "Smallest Flower",
-      price: 19,
-      tags: ["Flower", "Small", "Stone"],
+      name: "Cactus",
+      price: 10,
+      tags: ["Cactus", "Stone"],
       image: ProductImage,
     },
     {
       id: nanoid(),
-      name: "Smallest Flower",
-      price: 19,
-      tags: ["Flower", "Small", "Stone"],
+      name: "Christmas Tree",
+      price: 39,
+      tags: ["Tree", "Christmas"],
       image: ProductImage,
     },
   ]);
-  console.log(winterCollection);
+
   const navigate = useNavigate();
+
   return (
     <HomePageContainer>
       <FirstScreenContainer>
@@ -77,7 +78,7 @@ const HomePage = () => {
       <HeadingTwo>Our winter collection</HeadingTwo>
       <ProductList>
         {winterCollection.map((item) => (
-          <ProductItem item={item} />
+          <ProductItem key={item.id} item={item} />
         ))}
       </ProductList>
     </HomePageContainer>

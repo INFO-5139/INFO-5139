@@ -6,3 +6,8 @@ export const selectIsActive = createSelector(
   [selectCart],
   (cart) => cart.isActive
 );
+
+export const selectCartItems = createSelector(
+  [selectCart],
+  (cart) => cart.cartItems
+);

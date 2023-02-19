@@ -1,5 +1,5 @@
 import React from "react";
-import ProductImage from "../../assets/product-item.png";
+import { useDispatch, useSelector } from "react-redux";
 import {
   CategoriesContainer,
   ProductItemContainer,
@@ -8,8 +8,25 @@ import {
   ItemButton,
   ProductImageContainer,
 } from "./product-item.styles";
+import { selectCartItems } from "../../redux/cart/cart.selector";
+import { updateCartItems } from "../../redux/cart/cart.reducer";
+import { incrementItemQuantity } from "../../redux/cart/cart.utils";
 
 const ProductItem = ({ item }) => {
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+
+  const handleAddItemToCart = (e) => {
+    e.preventDefault();
+    const existingCartItem = cartItems.find((i) => i.id === item.id);
+    if (existingCartItem) {
+      const newCartItems = incrementItemQuantity(existingCartItem, cartItems);
+      dispatch(updateCartItems(newCartItems));
+    } else {
+      dispatch(updateCartItems([...cartItems, { ...item, quantity: 1 }]));
+    }
+  };
+
   return (
     <ProductItemContainer>
       <ProductImageContainer>
@@ -18,11 +35,11 @@ const ProductItem = ({ item }) => {
       <ProductItemTitle>{item.name}</ProductItemTitle>
       <CategoriesContainer>
         {item.tags.map((t) => (
-          <span>{t}</span>
+          <span key={t}>{t}</span>
         ))}
       </CategoriesContainer>
       <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
-      <ItemButton>Add to cart</ItemButton>
+      <ItemButton onClick={handleAddItemToCart}>Add to cart</ItemButton>
     </ProductItemContainer>
   );
 };

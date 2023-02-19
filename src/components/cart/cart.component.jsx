@@ -1,10 +1,13 @@
 import React from "react";
-import { CartContainer, Overlay } from "./cart.styles";
+import { CartContainer, CartItemHeadings, Overlay } from "./cart.styles";
 import { HeadingTwo } from "../../pages/HomePage/home-page.styles";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateIsActive } from "../../redux/cart/cart.reducer";
+import CartItem from "../cart-item/cart-item.component";
+import { selectCartItems } from "../../redux/cart/cart.selector";
 
 const Cart = () => {
+  const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
   return (
     <>
@@ -14,9 +17,20 @@ const Cart = () => {
         }}
       />
       <CartContainer>
-        <HeadingTwo style={{ textAlign: "center", marginTop: 15 }}>
-          Cart
-        </HeadingTwo>
+        <HeadingTwo style={{ textAlign: "center" }}>Cart</HeadingTwo>
+        <CartItemHeadings>
+          <span>Image</span>
+          <span>Name</span>
+          <span>Price</span>
+          <span>Quantity</span>
+        </CartItemHeadings>
+        <hr />
+
+        <div>
+          {cartItems.map((item) => (
+            <CartItem item={item} key={item.id} />
+          ))}
+        </div>
       </CartContainer>
     </>
   );
