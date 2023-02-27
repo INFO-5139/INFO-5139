@@ -48,11 +48,16 @@ const SignUp = () => {
     if (validate.length === 0) {
       setErrorMessages([]);
 
-      createUserWithEmailAndPassword(auth, emailAddress, password).then(
-        (userCredentials) => {}
-      );
+      createUserWithEmailAndPassword(auth, emailAddress, password)
+        .then((userCredentials) => {
+          // const user = userCredentials.user;
+          // console.log(user);
+          window.alert('Account has been successfully created.');
+        })
+        .catch((err) => {
+          window.alert(err.message);
+        });
     }
-    // setErrorMessages(validate);
   };
 
   return (
