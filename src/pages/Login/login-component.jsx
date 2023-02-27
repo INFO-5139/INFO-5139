@@ -30,7 +30,18 @@ const Login = () => {
       </PasswordField>
       <LoginButton>Login</LoginButton>
       <NoAccount>Don't have an account?</NoAccount>
-      <SignUpLink>!! Link goes here !!</SignUpLink>
+      <SignUpLink>
+        <Link
+          to='/signup'
+          style={{
+            textDecoration: 'none',
+            color: '#388b37',
+            fontWeight: 'bold',
+          }}
+        >
+          Sign up
+        </Link>
+      </SignUpLink>
     </LoginForm>
   );
 };

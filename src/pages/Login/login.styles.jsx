@@ -46,4 +46,7 @@ export const NoAccount = styled.div`
   margin-top: 3rem;
 `;
 
-export const SignUpLink = styled.a``;
+export const SignUpLink = styled.div`
+  margin: 0.5rem 0 2rem 0;
+  text-decoration: none;
+`;
