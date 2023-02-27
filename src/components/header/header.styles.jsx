@@ -1,4 +1,6 @@
-import styled from "styled-components";
+/** @format */
+
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -40,4 +42,8 @@ export const CartButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   border: none;
+`;
+
+export const ButtonLink = styled.span`
+  text-decoration: none;
 `;
