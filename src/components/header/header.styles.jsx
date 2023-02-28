@@ -1,6 +1,7 @@
 /** @format */
 
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -21,29 +22,27 @@ export const HeaderRightPart = styled.div`
   align-items: center;
 `;
 
-export const LogInButton = styled.button`
-  background-color: transparent;
-  border: 3px solid #388b37;
-  border-radius: 40px;
-  padding: 8px 65px;
-  font-size: 24px;
-  color: #388b37;
-  cursor: pointer;
-  transition: all 0.3s;
-  margin-right: 30px;
-
-  &:hover {
-    background-color: #388b37;
-    color: #fff;
-  }
-`;
-
 export const CartButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   border: none;
 `;
 
-export const ButtonLink = styled.span`
+export const NavbarLink = styled(Link)`
+  background-color: transparent;
+  border: 3px solid #388b37;
+  border-radius: 40px;
+  padding: 6px 65px 10px 65px;
+  font-size: 24px;
+  color: #388b37;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 30px;
+  white-space: nowrap;
   text-decoration: none;
+
+  &:hover {
+    background-color: #388b37;
+    color: white;
+  }
 `;

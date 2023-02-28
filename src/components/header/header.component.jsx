@@ -5,12 +5,10 @@ import {
   HeaderContainer,
   HeaderLeftPart,
   HeaderRightPart,
-  LogInButton,
+  NavbarLink,
   CartButton,
-  ButtonLink,
 } from './header.styles';
 import { Icon } from '@iconify/react';
-import { Link } from 'react-router-dom';
 import Navigation from '../navigation/navigation.component';
 
 const Header = () => {
@@ -25,19 +23,7 @@ const Header = () => {
         <Navigation color='#333' />
       </HeaderLeftPart>
       <HeaderRightPart>
-        <LogInButton>
-          <ButtonLink>
-            {/* //! TODO: fix padding on link within button */}
-            <Link
-              style={{
-                textDecoration: 'none',
-              }}
-              to='/login'
-            >
-              Log In
-            </Link>
-          </ButtonLink>
-        </LogInButton>
+        <NavbarLink to='login'>Log In</NavbarLink>
         <CartButton>
           <Icon
             icon='ic:round-shopping-cart'
