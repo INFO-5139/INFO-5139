@@ -8,8 +8,11 @@ import {
 } from "./header.styles";
 import { Icon } from "@iconify/react";
 import Navigation from "../navigation/navigation.component";
+import { useDispatch } from "react-redux";
+import { updateIsActive } from "../../redux/cart/cart.reducer";
 
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <HeaderContainer>
       <HeaderLeftPart>
@@ -18,7 +21,12 @@ const Header = () => {
       </HeaderLeftPart>
       <HeaderRightPart>
         <LogInButton>Log In</LogInButton>
-        <CartButton>
+        <CartButton
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(updateIsActive(true));
+          }}
+        >
           <Icon icon="ic:round-shopping-cart" width={30} height={30} />
         </CartButton>
       </HeaderRightPart>

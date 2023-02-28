@@ -65,4 +65,12 @@ export const CTAImage = styled.img`
 
 export const HeadingTwo = styled.h2`
   font-size: 42px;
+  margin-bottom: 25px;
+`;
+
+export const ProductList = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 `;

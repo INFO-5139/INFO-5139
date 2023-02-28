@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HomePageContainer,
   HeadingOne,
@@ -9,13 +9,48 @@ import {
   CTAImage,
   ImageContainer,
   HeadingTwo,
+  ProductList,
 } from "./home-page.styles";
 import Image from "../../assets/main_image.jpg";
 import { useNavigate } from "react-router-dom";
 import ProductItem from "../../components/product-item/product-item.component";
+import ProductImage from "../../assets/product-item.png";
+import { nanoid } from "nanoid";
 
 const HomePage = () => {
+  const [winterCollection, setWinterCollection] = useState([
+    {
+      id: nanoid(),
+      name: "Smallest Flower",
+      price: 19,
+      tags: ["Flower", "Small", "Stone"],
+      image: ProductImage,
+    },
+    {
+      id: nanoid(),
+      name: "Big Pine Tree",
+      price: 25,
+      tags: ["Tree", "Pine", "Wood"],
+      image: ProductImage,
+    },
+    {
+      id: nanoid(),
+      name: "Cactus",
+      price: 10,
+      tags: ["Cactus", "Stone"],
+      image: ProductImage,
+    },
+    {
+      id: nanoid(),
+      name: "Christmas Tree",
+      price: 39,
+      tags: ["Tree", "Christmas"],
+      image: ProductImage,
+    },
+  ]);
+
   const navigate = useNavigate();
+
   return (
     <HomePageContainer>
       <FirstScreenContainer>
@@ -41,7 +76,11 @@ const HomePage = () => {
         </ImageContainer>
       </FirstScreenContainer>
       <HeadingTwo>Our winter collection</HeadingTwo>
-      <ProductItem />
+      <ProductList>
+        {winterCollection.map((item) => (
+          <ProductItem key={item.id} item={item} />
+        ))}
+      </ProductList>
     </HomePageContainer>
   );
 };
