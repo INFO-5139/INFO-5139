@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const ProductItemContainer = styled.div`
   background-color: #f9f9f9;
-  max-width: 335px;
+  max-width: 325px;
 `;
 
 export const ProductImageContainer = styled.div`
   max-height: 220px;
+  width: 100%;
   overflow: hidden;
 `;
 
