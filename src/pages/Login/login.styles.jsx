@@ -26,7 +26,8 @@ export const EmailField = styled.div`
 export const PasswordField = styled.div`
   input[type='password'] {
     width: 100%;
-    padding: 0.3rem 1rem 0.3rem 1rem;
+    padding: 0.3rem 0 0.3rem 0;
+    margin: 0 2.2rem 0 0;
   }
   font-weight: bold;
   margin-bottom: 3rem;
