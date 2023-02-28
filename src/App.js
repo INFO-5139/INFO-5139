@@ -1,9 +1,12 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+/** @format */
 
-import HomePage from "./pages/HomePage/home-page.component";
-import Header from "./components/header/header.component";
-import Footer from "./components/footer/footer.component";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage/home-page.component';
+import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
+import Login from './pages/Login/login-component';
+import SignUp from './pages/SignUp/signup-component';
 import Cart from "./components/cart/cart.component";
 import { useSelector } from "react-redux";
 import { selectIsActive } from "./redux/cart/cart.selector";
@@ -14,7 +17,18 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path='/'
+          element={<HomePage />}
+        />
+        <Route
+          path='login'
+          element={<Login />}
+        />
+        <Route
+          path='signup'
+          element={<SignUp />}
+        />
       </Routes>
       {isCartActive ? <Cart /> : ""}
       <Footer />
