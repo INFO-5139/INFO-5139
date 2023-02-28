@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FaLeaf } from 'react-icons/fa';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -45,4 +46,11 @@ export const NavbarLink = styled(Link)`
     background-color: #388b37;
     color: white;
   }
+`;
+
+export const StoreIcon = styled(FaLeaf)`
+  color: #388b37;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 2.4rem;
 `;

@@ -7,6 +7,7 @@ import {
   HeaderRightPart,
   NavbarLink,
   CartButton,
+  StoreIcon,
 } from './header.styles';
 import { Icon } from '@iconify/react';
 import Navigation from '../navigation/navigation.component';
@@ -15,11 +16,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <HeaderLeftPart>
-        <img
-          src=''
-          alt='Logo'
-          style={{ marginRight: '60px' }}
-        />
+        <StoreIcon />
         <Navigation color='#333' />
       </HeaderLeftPart>
       <HeaderRightPart>
