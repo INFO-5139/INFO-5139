@@ -3,7 +3,13 @@ import React, { useRef } from 'react'
 import {
     ImageStyle,
     CTAImage,
-    FormStyle
+    FormStyle,
+    GridMain,
+    RightSide,
+    LeftSide,
+    HeaderGrid,
+    SendButton,
+    TextBox,
 } from './contact-us.styles'
 const Contact = () => {
     const picture = require('../../assets/contact-plant.jpg')
@@ -19,27 +25,37 @@ const Contact = () => {
         });
     };
     return (
-        <><h1>Contact us</h1>
-        <p>Thank you for reachin out, let us a know a little bit about yourself, and</p>
-        <p>we will get in touch as soon as we can.</p>
-        <p>Have a suggestion and want to remain anonymous? No problem!</p>
-        <p>Just leave the <i>email</i> section blank</p>
-        <ImageStyle>
-            <CTAImage img src={picture} alt = "plant"/>
-        </ImageStyle>
-        <FormStyle>
-        <form ref={form} onSubmit={sendEmail}>
-            <label><b>Name</b></label>
-            <input type = "text" name = "from_name" />
-            <label>Email</label>
-            <input type = "text" name = "email" />
-            <label>Subject</label>
-            <input type = "text" name = "subject" />
-            <label><b>Message</b></label>
-            <textarea name = "message" />
-            <input type = "submit" value = "Send"/>
-        </form>
-        </FormStyle>
+
+        <>
+        <GridMain>
+            <HeaderGrid>
+                <h1>Contact us</h1>
+            </HeaderGrid>
+            <RightSide>
+                <p>Thank you for reachin out, let us a know a little bit about yourself, and <br></br>
+                we will get in touch as soon as we can.</p>
+                <p>Have a suggestion and want to remain anonymous? No problem! <br></br>
+                Just leave the <i>email</i> section blank</p>
+                <ImageStyle>
+                    <CTAImage img src={picture} alt = "plant"/>
+                </ImageStyle>
+            </RightSide>
+            <LeftSide>
+                <FormStyle>
+                    <form ref={form} onSubmit={sendEmail}>
+                        <label><b>Name</b></label>
+                        <input type = "text" name = "from_name" />
+                        <label>Email</label>
+                        <input type = "text" name = "email" />
+                        <label>Subject</label>
+                        <input type = "text" name = "subject" />
+                        <label><b>Message</b></label>
+                        <TextBox><textarea name = "message"  style = {{height:'50px'}}/></TextBox>
+                        <SendButton onClick={sendEmail}>Send Message</SendButton>
+                    </form>
+                </FormStyle>
+            </LeftSide>
+        </GridMain>
         </>
     );
 }; 
