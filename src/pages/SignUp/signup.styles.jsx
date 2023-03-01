@@ -37,6 +37,11 @@ export const InputField = styled.input`
   margin-bottom: 2rem;
 `;
 
+export const Reenter = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const TogglePasswordVisibility = styled.button`
   display: flex;
   padding: 0.4rem 0.5rem 0.1rem 0.5rem;
@@ -45,7 +50,7 @@ export const TogglePasswordVisibility = styled.button`
   background-color: white;
   border-radius: 25px;
   border: none;
-  margin: -7.2vh 0 5vh 25vw;
+  margin: -1rem 0 0 auto;
 `;
 
 export const SignUpButton = styled.button`

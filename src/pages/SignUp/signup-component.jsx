@@ -7,6 +7,7 @@ import {
   SignUpForm,
   InputField,
   FieldWrapper,
+  Reenter,
   TogglePasswordVisibility,
   SignUpButton,
 } from './signup.styles';
@@ -101,8 +102,13 @@ const SignUp = () => {
             }}
           />
         </label>
-        <label>
+        <Reenter>
           Re-enter Password:
+          <TogglePasswordVisibility onClick={showPasswordHandler}>
+            {showPasswords ? <AiFillEyeInvisible /> : <AiFillEye />}
+          </TogglePasswordVisibility>
+        </Reenter>
+        <label>
           <InputField
             type={showPasswords ? 'text' : 'password'}
             onChange={(e) => {
@@ -110,9 +116,6 @@ const SignUp = () => {
             }}
           />
         </label>
-        <TogglePasswordVisibility onClick={showPasswordHandler}>
-          {showPasswords ? <AiFillEyeInvisible /> : <AiFillEye />}
-        </TogglePasswordVisibility>
       </FieldWrapper>
       <SignUpButton onClick={(e) => createAccountHandler(e)}>
         Create Account
