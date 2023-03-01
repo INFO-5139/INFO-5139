@@ -7,9 +7,10 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import Login from './pages/Login/login-component';
 import SignUp from './pages/SignUp/signup-component';
-import Cart from "./components/cart/cart.component";
-import { useSelector } from "react-redux";
-import { selectIsActive } from "./redux/cart/cart.selector";
+import Cart from './components/cart/cart.component';
+import { useSelector } from 'react-redux';
+import { selectIsActive } from './redux/cart/cart.selector';
+import AboutUs from './pages/AboutUs/about-us.component';
 
 function App() {
   const isCartActive = useSelector(selectIsActive);
@@ -29,8 +30,12 @@ function App() {
           path='signup'
           element={<SignUp />}
         />
+        <Route
+          path='about'
+          element={<AboutUs />}
+        />
       </Routes>
-      {isCartActive ? <Cart /> : ""}
+      {isCartActive ? <Cart /> : ''}
       <Footer />
     </div>
   );
