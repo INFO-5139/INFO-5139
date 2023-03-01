@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 
 export const LoginForm = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,23 +15,31 @@ margin-top 3rem;
   margin-bottom: 3rem;
 `;
 
-export const EmailField = styled.div`
-  input[type='email'] {
-    width: 100%;
-    padding: 0.3rem 0 0.3rem 0;
-  }
+export const FieldWrapper = styled.div`
+  width: 30%;
   font-weight: bold;
+`;
+
+export const InputField = styled.input`
+  width: 100%;
+  padding: 0.3rem 0 0.3rem 0;
   margin-bottom: 2rem;
 `;
 
-export const PasswordField = styled.div`
-  input[type='password'] {
-    width: 100%;
-    padding: 0.3rem 0 0.3rem 0;
-    margin: 0 2.2rem 0 0;
-  }
-  font-weight: bold;
-  margin-bottom: 3rem;
+export const TogglePasswordVisibility = styled.button`
+  display: flex;
+  padding: 0.4rem 0.5rem 0.1rem 0.5rem;
+  font-size: 2rem;
+  color: black;
+  background-color: white;
+  border-radius: 25px;
+  border: none;
+  margin: -1rem 0 0 auto;
+`;
+
+export const EnterPassword = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const LoginButton = styled.button`

@@ -4,12 +4,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './../../api/firebaseConfig';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 
 import {
   LoginForm,
   Title,
-  EmailField,
-  PasswordField,
+  FieldWrapper,
+  InputField,
+  TogglePasswordVisibility,
+  EnterPassword,
   LoginButton,
   NoAccount,
   SignUpLink,
@@ -20,6 +23,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   // eslint-disable-next-line
   const [theUser, setTheUser] = useState('');
+  const [showPasswords, setShowPasswords] = useState(false);
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -54,31 +58,44 @@ const Login = () => {
       });
   };
 
+  const showPasswordHandler = (e) => {
+    e.preventDefault();
+    setShowPasswords(showPasswords === true ? false : true);
+  };
+
   return (
     <LoginForm>
       <Title>Login</Title>
-      <EmailField>
+      <FieldWrapper>
         <label>
           Email Address:
-          <input
+          <InputField
             type='email'
             onChange={(e) => {
               setEmailAddress(e.target.value);
             }}
           />
         </label>
-      </EmailField>
-      <PasswordField>
-        <label>
+      </FieldWrapper>
+      <FieldWrapper>
+        <EnterPassword>
           Password:
-          <input
-            type='password'
+          <TogglePasswordVisibility
+            onClick={showPasswordHandler}
+            tabIndex='-1'
+          >
+            {showPasswords ? <AiFillEyeInvisible /> : <AiFillEye />}
+          </TogglePasswordVisibility>
+        </EnterPassword>
+        <label>
+          <InputField
+            type={showPasswords ? 'text' : 'password'}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
         </label>
-      </PasswordField>
+      </FieldWrapper>
       <LoginButton onClick={handleLogIn}>Login</LoginButton>
       <NoAccount>Don't have an account?</NoAccount>
       <SignUpLink>
