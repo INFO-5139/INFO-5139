@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 export const ErrorMessageField = styled.div`
-  width: 25vw;
+  width: 60%;
   color: black;
   margin-bottom: 3rem;
   list-style-type: none;
@@ -15,6 +15,7 @@ export const ErrorMessageTitle = styled.div`
 `;
 
 export const SignUpForm = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +28,7 @@ margin-top 3rem;
 `;
 
 export const FieldWrapper = styled.div`
-  width: 25vw;
+  width: 30%;
   font-weight: bold;
 `;
 
@@ -51,6 +52,7 @@ export const TogglePasswordVisibility = styled.button`
   border-radius: 25px;
   border: none;
   margin: -1rem 0 0 auto;
+  // tab-index: -1;
 `;
 
 export const SignUpButton = styled.button`

@@ -104,7 +104,10 @@ const SignUp = () => {
         </label>
         <Reenter>
           Re-enter Password:
-          <TogglePasswordVisibility onClick={showPasswordHandler}>
+          <TogglePasswordVisibility
+            onClick={showPasswordHandler}
+            tabIndex='-1'
+          >
             {showPasswords ? <AiFillEyeInvisible /> : <AiFillEye />}
           </TogglePasswordVisibility>
         </Reenter>
