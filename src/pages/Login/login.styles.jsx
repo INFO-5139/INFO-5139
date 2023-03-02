@@ -42,13 +42,23 @@ export const EnterPassword = styled.div`
   flex-direction: row;
 `;
 
-export const LoginButton = styled.button`
+export const LoginEmailButton = styled.button`
   background-color: #388b37;
   border-radius: 25px;
   border: none;
   padding: 0.8rem 5rem 0.8rem 5rem;
   color: #fff;
   font-size: 18px;
+`;
+
+export const LoginGoogleButton = styled.button`
+  background-color: #388b37;
+  border-radius: 25px;
+  border: none;
+  padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+  color: #fff;
+  font-size: 18px;
+  margin 2rem 0 0 0;
 `;
 
 export const NoAccount = styled.div`
