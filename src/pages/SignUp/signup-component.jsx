@@ -57,7 +57,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, emailAddress, password)
         .then(() => {
           window.alert('Account has been successfully created.');
-          navigate('/login');
+          navigate('/shop');
         })
         .catch((err) => {
           window.alert(err.message);
