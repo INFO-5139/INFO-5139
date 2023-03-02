@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaLeaf } from 'react-icons/fa';
+import { RxAvatar } from "react-icons/rx";
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -57,7 +58,7 @@ export const LoginLink = styled(Link)`
   color: #388b37;
   cursor: pointer;
   transition: all 0.3s;
-  margin-right: 30px;
+  margin-right: 1.1rem;
   white-space: nowrap;
   text-decoration: none;
 
@@ -76,7 +77,7 @@ export const LogoutButton = styled.button`
   color: #388b37;
   cursor: pointer;
   transition: all 0.3s;
-  margin-right: 30px;
+  margin-right: 1.1rem;
   white-space: nowrap;
   text-decoration: none;
 
@@ -92,3 +93,16 @@ export const StoreIcon = styled(FaLeaf)`
   width: 2.5rem;
   margin-right: 2.4rem;
 `;
+
+export const UserIcon = styled(RxAvatar)`
+// border: 1px solid black;
+font-size: 2em;
+color: #388b37;
+margin: auto 1rem auto 0;
+
+`
+
+export const UserName = styled.div`
+font-size: 0.5em;
+
+`

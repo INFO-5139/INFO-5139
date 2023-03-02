@@ -1,14 +1,16 @@
 /** @format */
 
-import React, {useState} from 'react';
+import React from 'react';
 import {
   HeaderContainer,
   HeaderLeftPart,
   HeaderRightPart,
- LoginLink,
- LogoutButton,
+  LoginLink,
+  LogoutButton,
   CartButton,
   StoreIcon,
+  UserIcon,
+  UserName,
 } from './header.styles';
 import { Icon } from '@iconify/react';
 import Navigation from '../navigation/navigation.component';
@@ -16,7 +18,6 @@ import { useDispatch } from 'react-redux';
 import { updateIsActive } from '../../redux/cart/cart.reducer';
 import { auth } from './../../api/firebaseConfig'
 import { useNavigate } from 'react-router-dom';
-
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -51,7 +52,11 @@ const Header = () => {
         }
 
         { auth.currentUser !== null &&
+          <>
           <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
+            <UserIcon ></UserIcon>
+          
+          </>
         }
         <CartButton
           onClick={(e) => {
