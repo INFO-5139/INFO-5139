@@ -8,6 +8,7 @@ import Footer from './components/footer/footer.component';
 import Login from './pages/Login/login-component';
 import SignUp from './pages/SignUp/signup-component';
 import Cart from './components/cart/cart.component';
+import Contact from './pages/Contact/contact-us';
 import { useSelector } from 'react-redux';
 import { selectIsActive } from './redux/cart/cart.selector';
 import AboutUs from './pages/AboutUs/about-us.component';
@@ -33,6 +34,10 @@ function App() {
         <Route
           path='about'
           element={<AboutUs />}
+        />
+        <Route
+          path='contact'
+          element={<Contact />}
         />
       </Routes>
       {isCartActive ? <Cart /> : ''}
