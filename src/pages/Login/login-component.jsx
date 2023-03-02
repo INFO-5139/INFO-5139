@@ -28,14 +28,15 @@ import {
  * Component that handles the login logic, and displays the login form.
  */
 const Login = () => {
-
-  const navigate = useNavigate();
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   // eslint-disable-next-line
-  const [theUser, setTheUser] = useState('');
   const [showPasswords, setShowPasswords] = useState(false);
   const provider = new GoogleAuthProvider();
+  // initiating navigation hook
+  const navigate = useNavigate();
+  // local state for user logging in
+  const [theUser, setTheUser ] = useState('');
 
   /**
    * Function that handles authentication requests for email and password.
@@ -45,20 +46,22 @@ const Login = () => {
    */
   const signInWithEmailHandler = async (e) => {
     e.preventDefault();
-    
+    // reset local state for any pre-exsiting users
+   setTheUser('');
 
     signInWithEmailAndPassword(auth, emailAddress, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log('User:', user);
-        window.alert('Successfully signed in.');
-        
-      })
-      .catch((err) => {
-        if (err.code === 'auth/invalid-email') {
-          window.alert(
-            'Invalid email address. Please enter a valid email address.'
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log('User:', user);
+      window.alert('Successfully signed in.');
+      setTheUser(user);
+      
+    })
+    .catch((err) => {
+      if (err.code === 'auth/invalid-email') {
+        window.alert(
+          'Invalid email address. Please enter a valid email address.'
           );
           return;
         }
@@ -74,14 +77,12 @@ const Login = () => {
         console.log('Error Message:', err.message);
       });
       
-        navigate('/shop')
-      
-  };
-
-  /**
-   * Function that handles authentication requests for Google accounts.
-   * - Requires a valid Google email address.
-   * - Requires a valid password.
+    };
+    
+    /**
+     * Function that handles authentication requests for Google accounts.
+     * - Requires a valid Google email address.
+     * - Requires a valid password.
    * - If email address or password is incorrect, access to Google account log in is denied..
    */
   const signInWithGoogleHandler = (e) => {
@@ -91,6 +92,7 @@ const Login = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        setTheUser(user);
         console.log('Token:', token);
         console.log('User:', user);
       })
@@ -102,21 +104,13 @@ const Login = () => {
         console.log('Email:', email);
         console.log('Credential:', credential);
       });
-      navigate('/shop')
   };
 
-  //! TODO: get log out functionality working properly.
-  // eslint-disable-next-line
-  const logout = (e) => {
-    e.preventDefault();
-    signOut(auth)
-      .then(() => {
-        console.log('here is the user from logout: ', auth.user);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
+   // navigate to shop when user logged in / clear fields.
+   if(theUser !== '') {
+    navigate('/shop')
+    setTheUser('');
+  }
 
   /**
    * Handler function for showing or hiding the password in the input field.
@@ -134,8 +128,10 @@ const Login = () => {
           Email Address:
           <InputField
             type='email'
+            value = { emailAddress }
             onChange={(e) => {
               setEmailAddress(e.target.value);
+
             }}
           />
         </label>
@@ -153,6 +149,7 @@ const Login = () => {
         <label>
           <InputField
             type={showPasswords ? 'text' : 'password'}
+            value = { password }
             onChange={(e) => {
               setPassword(e.target.value);
             }}

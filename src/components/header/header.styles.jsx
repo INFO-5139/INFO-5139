@@ -67,7 +67,7 @@ export const LoginLink = styled(Link)`
   }
 `;
 
-export const LogoutLink = styled(Link)`
+export const LogoutButton = styled.button`
   background-color: transparent;
   border: 3px solid #388b37;
   border-radius: 40px;
