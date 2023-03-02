@@ -45,7 +45,7 @@ export const RightSide = styled.div`
   p {
     padding-bottom: 20px;
   }
-
+  padding-bottom: 20%;
 `;
 
 export const HeaderGrid = styled.div`
@@ -67,9 +67,21 @@ export const SendButton = styled.div`
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
+  margin-bottom: 120%;
 `;
 
 export const TextBox = styled.div`
   padding-top: 2%;
-  padding-bottom: 2%;
-`
+  padding-bottom: 10%;
+  textarea{
+    width: 100%;
+    height: 200px;
+  }
+`;
+
+export const InputStyle = styled.div`
+  padding-bottom: 20%;
+  input {
+    width: 100%;
+  }
+`;

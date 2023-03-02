@@ -10,6 +10,7 @@ import {
     HeaderGrid,
     SendButton,
     TextBox,
+    InputStyle,
 } from './contact-us.styles'
 const Contact = () => {
     const picture = require('../../assets/contact-plant.jpg')
@@ -44,13 +45,19 @@ const Contact = () => {
                 <FormStyle>
                     <form ref={form} onSubmit={sendEmail}>
                         <label><b>Name</b></label>
-                        <input type = "text" name = "from_name" />
+                        <InputStyle>
+                            <input type = "text" name = "from_name" />
+                        </InputStyle>
                         <label>Email</label>
-                        <input type = "text" name = "email" />
+                        <InputStyle>
+                            <input type = "text" name = "email" />
+                        </InputStyle>
                         <label>Subject</label>
-                        <input type = "text" name = "subject" />
+                        <InputStyle>
+                            <input type = "text" name = "subject" />
+                        </InputStyle>
                         <label><b>Message</b></label>
-                        <TextBox><textarea name = "message"  style = {{height:'50px'}}/></TextBox>
+                        <TextBox><textarea name = "message" /></TextBox>
                         <SendButton onClick={sendEmail}>Send Message</SendButton>
                     </form>
                 </FormStyle>
