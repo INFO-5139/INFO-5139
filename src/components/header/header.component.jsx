@@ -46,9 +46,9 @@ const Header = () => {
       </HeaderLeftPart>
       <HeaderRightPart>      
     
-          { auth.currentUser === null && 
+        { auth.currentUser === null && 
             <LoginLink to='login'>Log In</LoginLink>
-          }
+        }
 
         { auth.currentUser !== null &&
           <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
