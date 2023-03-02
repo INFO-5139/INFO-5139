@@ -1,7 +1,7 @@
 /** @format */
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   signInWithEmailAndPassword,
   signOut,
@@ -28,6 +28,8 @@ import {
  * Component that handles the login logic, and displays the login form.
  */
 const Login = () => {
+
+  const navigate = useNavigate();
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   // eslint-disable-next-line
@@ -43,6 +45,7 @@ const Login = () => {
    */
   const signInWithEmailHandler = async (e) => {
     e.preventDefault();
+    
 
     signInWithEmailAndPassword(auth, emailAddress, password)
       .then((userCredential) => {
@@ -50,6 +53,7 @@ const Login = () => {
         const user = userCredential.user;
         console.log('User:', user);
         window.alert('Successfully signed in.');
+        
       })
       .catch((err) => {
         if (err.code === 'auth/invalid-email') {
@@ -69,6 +73,9 @@ const Login = () => {
         console.log('Error Code:', err.code);
         console.log('Error Message:', err.message);
       });
+      
+        navigate('/shop')
+      
   };
 
   /**
@@ -95,6 +102,7 @@ const Login = () => {
         console.log('Email:', email);
         console.log('Credential:', credential);
       });
+      navigate('/shop')
   };
 
   //! TODO: get log out functionality working properly.

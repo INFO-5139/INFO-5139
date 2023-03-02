@@ -48,6 +48,44 @@ export const NavbarLink = styled(Link)`
   }
 `;
 
+export const LoginLink = styled(Link)`
+  background-color: transparent;
+  border: 3px solid #388b37;
+  border-radius: 40px;
+  padding: 6px 65px 10px 65px;
+  font-size: 24px;
+  color: #388b37;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 30px;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #388b37;
+    color: white;
+  }
+`;
+
+export const LogoutLink = styled(Link)`
+  background-color: transparent;
+  border: 3px solid #388b37;
+  border-radius: 40px;
+  padding: 6px 65px 10px 65px;
+  font-size: 24px;
+  color: #388b37;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-right: 30px;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #388b37;
+    color: white;
+  }
+`;
+
 export const StoreIcon = styled(FaLeaf)`
   color: #388b37;
   height: 2.5rem;

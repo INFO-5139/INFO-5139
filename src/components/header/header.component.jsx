@@ -5,7 +5,8 @@ import {
   HeaderContainer,
   HeaderLeftPart,
   HeaderRightPart,
-  NavbarLink,
+  LoginLink,
+  LogoutLink,
   CartButton,
   StoreIcon,
 } from './header.styles';
@@ -14,8 +15,11 @@ import Navigation from '../navigation/navigation.component';
 import { useDispatch } from 'react-redux';
 import { updateIsActive } from '../../redux/cart/cart.reducer';
 
+
 const Header = () => {
   const dispatch = useDispatch();
+ 
+
   return (
     <HeaderContainer>
       <HeaderLeftPart>
@@ -23,7 +27,8 @@ const Header = () => {
         <Navigation color='#333' />
       </HeaderLeftPart>
       <HeaderRightPart>
-        <NavbarLink to='login'>Log In</NavbarLink>
+        <LogoutLink to='/'>Log out</LogoutLink>
+        <LoginLink to='login'>Log In</LoginLink>
         <CartButton
           onClick={(e) => {
             e.preventDefault();
