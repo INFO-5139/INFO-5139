@@ -99,10 +99,4 @@ export const UserIcon = styled(RxAvatar)`
 font-size: 2em;
 color: #388b37;
 margin: auto 1rem auto 0;
-
-`
-
-export const UserName = styled.div`
-font-size: 0.5em;
-
 `
