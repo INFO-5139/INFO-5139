@@ -1,17 +1,20 @@
-import styled from "styled-components";
+/** @format */
+
+import styled from 'styled-components';
 
 export const FormStyle = styled.div`
   label {
-    display:block;
+    display: block;
+    font-weight: bold;
   }
 `;
 
 export const ImageStyle = styled.div`
-    overflow: hidden;
-    max-width: 450px;
-    box-shadow: -20px 20px 3px rgba(0, 0, 0, 0.25);
-    content-align: center;
-    margin: 0 auto;
+  overflow: hidden;
+  max-width: 450px;
+  box-shadow: -20px 20px 3px rgba(0, 0, 0, 0.25);
+  content-align: center;
+  margin: 0 auto;
 `;
 
 export const CTAImage = styled.img`
@@ -22,30 +25,36 @@ export const CTAImage = styled.img`
   transition: all 0.2s;
   &:hover {
     transform: scale(1.05);
-  };
+  }
 `;
 
 export const GridMain = styled.div`
-    display: grid;
-    place-items: center
-
+  display: grid;
+  // place-items: center;
+  grid-template-columns: 30% 30% 40%;
 `;
 
 export const LeftSide = styled.div`
   grid-area: Left;
   grid-column: 1;
-  padding bottom 
+  width: 80%;
+  margin-left: 3rem;
+`;
 
+export const MiddleSide = styled.div`
+  grid-area: middle;
+  grid-column: 2;
+  width: 80%;
 `;
 
 export const RightSide = styled.div`
-  grid-area:Right;
-  grid-column: 2;
+  grid-area: Right;
+  grid-column: 3;
   padding-bottom: 5%;
   p {
     padding-bottom: 20px;
   }
-  padding-bottom: 20%;
+  // padding-bottom: 20%;
 `;
 
 export const HeaderGrid = styled.div`
@@ -56,32 +65,37 @@ export const HeaderGrid = styled.div`
   display: flex;
   padding-top: 3%;
   padding-bottom: 3%;
+  padding-left: 22vw;
 `;
 
 export const SendButton = styled.div`
   background-color: #388b37;
   border-radius: 25px;
   border: none;
-  padding: 0.8rem 5rem 0.8rem 5rem;
+  padding: 0.8rem 0 0.8rem 0;
   color: #fff;
+  margin-left: 6vw;
   font-size: 18px;
   text-decoration: none;
   cursor: pointer;
-  margin-bottom: 120%;
+  // margin-bottom: 120%;
+  width: 50%;
+  text-align: center;
 `;
 
 export const TextBox = styled.div`
   padding-top: 2%;
   padding-bottom: 10%;
-  textarea{
+  textarea {
     width: 100%;
     height: 200px;
   }
 `;
 
 export const InputStyle = styled.div`
-  padding-bottom: 20%;
+  padding-bottom: 10%;
   input {
     width: 100%;
+    padding: 0.3rem 0 0.3rem 0;
   }
 `;
