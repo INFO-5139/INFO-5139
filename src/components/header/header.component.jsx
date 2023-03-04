@@ -10,7 +10,7 @@ import {
   CartButton,
   StoreIcon,
   UserIcon,
-  UserName,
+  DisplayName,
 } from './header.styles';
 import { Icon } from '@iconify/react';
 import Navigation from '../navigation/navigation.component';
@@ -31,13 +31,13 @@ const Header = () => {
     // sign user out
     try {
         await auth.signOut()
-        console.log('here is the user after sign out: ', auth.currentUser)
         navigate('/login')  
     }
     catch (err) {
             console.log(err.message);
     }
   }
+
   
   return (
     <HeaderContainer>
@@ -54,7 +54,11 @@ const Header = () => {
         { auth.currentUser !== null &&
           <>
           <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
-            <UserIcon ></UserIcon>
+            <DisplayName>
+              <UserIcon ></UserIcon>
+              <p>{auth.currentUser.displayName}</p>
+            </DisplayName>
+           
           
           </>
         }
