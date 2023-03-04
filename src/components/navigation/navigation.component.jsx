@@ -23,6 +23,9 @@ const Navigation = ({ color, align }) => {
         <NavigationListItem color={color}>
           <Link to='/about'>About</Link>
         </NavigationListItem>
+        <NavigationListItem color={color}>
+          <Link to='/account'>Account</Link>
+        </NavigationListItem>
       </NavigationContainer>
     </nav>
   );

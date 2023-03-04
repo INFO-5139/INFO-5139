@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CartBottomContainer,
   CartButton,
@@ -12,11 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateIsActive } from "../../redux/cart/cart.reducer";
 import CartItem from "../cart-item/cart-item.component";
 import { selectCartItems } from "../../redux/cart/cart.selector";
-
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <>
       <Overlay
@@ -51,7 +51,11 @@ const Cart = () => {
             </span>
           </TotalText>
 
-          <CartButton>Next Step</CartButton>
+          <CartButton
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/Checkout");
+            }}>Next Step</CartButton>
         </CartBottomContainer>
       </CartContainer>
     </>

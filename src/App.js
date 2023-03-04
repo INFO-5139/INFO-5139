@@ -12,7 +12,8 @@ import Contact from './pages/Contact/contact-us';
 import { useSelector } from 'react-redux';
 import { selectIsActive } from './redux/cart/cart.selector';
 import AboutUs from './pages/AboutUs/about-us.component';
-
+import Account from './pages/Account/account';
+import Checkout from './pages/Checkout/checkout';
 function App() {
   const isCartActive = useSelector(selectIsActive);
   return (
@@ -38,6 +39,15 @@ function App() {
         <Route
           path='contact'
           element={<Contact />}
+        />
+        <Route 
+          path='account'
+          element={<Account/>}
+        />
+
+        <Route
+          path='checkout'
+          element={<Checkout/>}
         />
       </Routes>
       {isCartActive ? <Cart /> : ''}
