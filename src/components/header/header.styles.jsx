@@ -72,7 +72,7 @@ export const LogoutButton = styled.button`
   background-color: transparent;
   border: 3px solid #388b37;
   border-radius: 40px;
-  padding: 6px 65px 10px 65px;
+  padding: 6px 50px 10px 50px;
   font-size: 24px;
   color: #388b37;
   cursor: pointer;
@@ -95,8 +95,12 @@ export const StoreIcon = styled(FaLeaf)`
 `;
 
 export const UserIcon = styled(RxAvatar)`
-// border: 1px solid black;
 font-size: 2em;
 color: #388b37;
-margin: auto 1rem auto 0;
+margin: 1rem 1rem 0 0;
+`
+
+export const DisplayName = styled.div`
+color: #0e360d;
+
 `

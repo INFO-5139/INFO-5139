@@ -12,7 +12,7 @@ import {
   SignUpButton,
 } from './signup.styles';
 import { auth } from './../../api//firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
@@ -20,6 +20,7 @@ import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 const SignUp = () => {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
+  const [displayName, setDisplayName] = useState('');
   const [reenteredPassword, setReenteredPassword] = useState('');
   const [errorMessages, setErrorMessages] = useState([]);
   const [showPasswords, setShowPasswords] = useState(false);
@@ -54,8 +55,16 @@ const SignUp = () => {
     if (validate.length === 0) {
       setErrorMessages([]);
 
-      createUserWithEmailAndPassword(auth, emailAddress, password)
-        .then(() => {
+      createUserWithEmailAndPassword(auth, emailAddress, password, displayName)
+        .then((currentUser) => {
+          if (!currentUser) {
+            throw new Error('Could not complete signup')
+          }
+
+          updateProfile(auth.currentUser, {displayName: displayName})
+          .then((user) => {
+            console.log(auth.currentUser)
+          })
           window.alert('Account has been successfully created.');
           navigate('/shop');
         })
@@ -84,6 +93,16 @@ const SignUp = () => {
         </ErrorMessageField>
       )}
       <FieldWrapper>
+      <label>
+          User Name:
+          <InputField
+            type='text'
+            value={displayName}
+            onChange={(e) => {
+              setDisplayName(e.target.value);
+            }}
+          />
+        </label>
         <label>
           Email Address:
           <InputField
