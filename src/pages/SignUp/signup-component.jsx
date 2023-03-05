@@ -44,7 +44,7 @@ const SignUp = () => {
     }
     if (!password.match(passwordStrength)) {
       validate.push(
-        'Please enter a valid password that is at least 8 characters long, with an uppercase letter, lowercase letter, and a number.'
+        'Please enter a valid password that is at least 8 characters long, with an uppercase letter, lowercase letter, number and a special character.'
       );
     }
     if (password !== reenteredPassword) {
@@ -58,13 +58,14 @@ const SignUp = () => {
       createUserWithEmailAndPassword(auth, emailAddress, password, displayName)
         .then((currentUser) => {
           if (!currentUser) {
-            throw new Error('Could not complete signup')
+            throw new Error('Could not complete signup');
           }
 
-          updateProfile(auth.currentUser, {displayName: displayName})
-          .then((user) => {
-            console.log(auth.currentUser)
-          })
+          updateProfile(auth.currentUser, { displayName: displayName }).then(
+            (user) => {
+              console.log(auth.currentUser);
+            }
+          );
           window.alert('Account has been successfully created.');
           navigate('/shop');
         })
@@ -93,7 +94,7 @@ const SignUp = () => {
         </ErrorMessageField>
       )}
       <FieldWrapper>
-      <label>
+        <label>
           User Name:
           <InputField
             type='text'
