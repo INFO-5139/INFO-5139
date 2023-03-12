@@ -64,3 +64,13 @@ export const CartButton = styled.button`
   padding: 14px 40px;
   cursor: pointer;
 `;
+
+export const ClearCartButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 20px;
+  color: #388b37;
+  text-decoration: underline;
+`;

@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React from "react";
 import {
   HeaderContainer,
   HeaderLeftPart,
@@ -11,68 +11,55 @@ import {
   StoreIcon,
   UserIcon,
   DisplayName,
-} from './header.styles';
-import { Icon } from '@iconify/react';
-import Navigation from '../navigation/navigation.component';
-import { useDispatch } from 'react-redux';
-import { updateIsActive } from '../../redux/cart/cart.reducer';
-import { auth } from './../../api/firebaseConfig'
-import { useNavigate } from 'react-router-dom';
+} from "./header.styles";
+import { Icon } from "@iconify/react";
+import Navigation from "../navigation/navigation.component";
+import { useDispatch } from "react-redux";
+import { updateIsActive } from "../../redux/cart/cart.reducer";
+import { auth } from "./../../api/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
- 
 
   const logout = async () => {
-    
-    console.log('Here is the user before auth.signout: ', auth.currentUser)
+    console.log("Here is the user before auth.signout: ", auth.currentUser);
 
     // sign user out
     try {
-        await auth.signOut()
-        navigate('/login')  
+      await auth.signOut();
+      navigate("/login");
+    } catch (err) {
+      console.log(err.message);
     }
-    catch (err) {
-            console.log(err.message);
-    }
-  }
+  };
 
-  
   return (
     <HeaderContainer>
       <HeaderLeftPart>
         <StoreIcon />
-        <Navigation color='#333' />
+        <Navigation color="#333" />
       </HeaderLeftPart>
-      <HeaderRightPart>      
-    
-        { auth.currentUser === null && 
-            <LoginLink to='login'>Log In</LoginLink>
-        }
+      <HeaderRightPart>
+        {auth.currentUser === null && <LoginLink to="login">Log In</LoginLink>}
 
-        { auth.currentUser !== null &&
+        {auth.currentUser !== null && (
           <>
-          <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
+            <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
             <DisplayName>
-              <UserIcon ></UserIcon>
+              <UserIcon></UserIcon>
               <p>{auth.currentUser.displayName}</p>
             </DisplayName>
-           
-          
           </>
-        }
+        )}
         <CartButton
           onClick={(e) => {
             e.preventDefault();
             dispatch(updateIsActive(true));
           }}
         >
-          <Icon
-            icon='ic:round-shopping-cart'
-            width={30}
-            height={30}
-          />
+          <Icon icon="ic:round-shopping-cart" width={30} height={30} />
         </CartButton>
       </HeaderRightPart>
     </HeaderContainer>

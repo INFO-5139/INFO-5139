@@ -74,3 +74,20 @@ export const ProductList = styled.div`
   gap: 10px;
   flex-wrap: wrap;
 `;
+
+export const SaleButton = styled.button`
+  background-color: transparent;
+  border: 3px solid #388b37;
+  border-radius: 30px;
+  padding: 14px 70px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #388b37;
+  margin-left: 20px;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #388b37;
+    color: #fff;
+  }
+`;

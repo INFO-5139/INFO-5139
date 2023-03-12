@@ -7,6 +7,7 @@ import {
   ProductPrice,
   ItemButton,
   ProductImageContainer,
+  SalePricesContainer,
 } from "./product-item.styles";
 import { selectCartItems } from "../../redux/cart/cart.selector";
 import { updateCartItems } from "../../redux/cart/cart.reducer";
@@ -38,7 +39,14 @@ const ProductItem = ({ item }) => {
           <span key={t}>{t}</span>
         ))}
       </CategoriesContainer>
-      <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+      {item.isOnSale ? (
+        <SalePricesContainer>
+          <p className="old-price">${item.oldPrice.toFixed(2)}</p>
+          <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+        </SalePricesContainer>
+      ) : (
+        <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+      )}
       <ItemButton onClick={handleAddItemToCart}>Add to cart</ItemButton>
     </ProductItemContainer>
   );

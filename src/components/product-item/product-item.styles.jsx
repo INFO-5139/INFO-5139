@@ -35,7 +35,7 @@ export const ProductPrice = styled.p`
   margin-left: 14px;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 13px;
+  /* margin-bottom: 13px; */
 `;
 
 export const ItemButton = styled.button`
@@ -47,4 +47,17 @@ export const ItemButton = styled.button`
   font-size: 24px;
   border: none;
   padding: 10px 0;
+  margin-top: 13px;
+`;
+
+export const SalePricesContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 14px;
+  /* margin-bottom: 13px; */
+
+  p.old-price {
+    font-size: 20px;
+    text-decoration: line-through;
+  }
 `;
