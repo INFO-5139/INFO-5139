@@ -1,4 +1,6 @@
-import styled from "styled-components";
+/** @format */
+
+import styled from 'styled-components';
 
 export const ProductItemContainer = styled.div`
   background-color: #f9f9f9;
@@ -60,4 +62,10 @@ export const SalePricesContainer = styled.div`
     font-size: 20px;
     text-decoration: line-through;
   }
+`;
+
+export const ProductQuantity = styled.span`
+  padding: 0.5rem 0 0 0.9rem;
+  display: flex;
+  font-size: 20px;
 `;
