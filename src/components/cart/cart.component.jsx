@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   CartBottomContainer,
   CartButton,
   CartContainer,
   CartItemHeadings,
+  ClearCartButton,
   Overlay,
   TotalText,
 } from "./cart.styles";
 import { HeadingTwo } from "../../pages/HomePage/home-page.styles";
 import { useDispatch, useSelector } from "react-redux";
-import { updateIsActive } from "../../redux/cart/cart.reducer";
+import { updateCartItems, updateIsActive } from "../../redux/cart/cart.reducer";
 import CartItem from "../cart-item/cart-item.component";
 import { selectCartItems } from "../../redux/cart/cart.selector";
 import { useNavigate } from "react-router-dom";
@@ -35,9 +36,9 @@ const Cart = () => {
         <hr />
 
         <div>
-          {cartItems.map((item) => (
-            <CartItem item={item} key={item.id} />
-          ))}
+          {cartItems.length > 0
+            ? cartItems.map((item) => <CartItem item={item} key={item.id} />)
+            : "Cart is empty"}
         </div>
 
         <CartBottomContainer>
@@ -51,11 +52,25 @@ const Cart = () => {
             </span>
           </TotalText>
 
-          <CartButton
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/Checkout");
-            }}>Next Step</CartButton>
+          <div>
+            <ClearCartButton
+              onClick={(e) => {
+                e.preventDefault();
+                dispatch(updateCartItems([]));
+              }}
+            >
+              Clear Cart
+            </ClearCartButton>
+
+            <CartButton
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/Checkout");
+              }}
+            >
+              Next Step
+            </CartButton>
+          </div>
         </CartBottomContainer>
       </CartContainer>
     </>
