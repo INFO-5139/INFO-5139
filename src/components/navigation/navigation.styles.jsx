@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NavigationContainer = styled.ul`
   list-style: none;
   display: flex;
-  ${(props) => (props.align === "center" ? "justify-content: center" : "")}
+  ${(props) => (props.align === 'center' ? 'justify-content: center' : '')}
 `;
 
 export const NavigationListItem = styled.li`
@@ -14,13 +14,13 @@ export const NavigationListItem = styled.li`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.color};
+    color: ${(props) => props.color.textColor};
     position: relative;
 
     &::after {
-      background-color: ${(props) => props.color};
+      background-color: ${(props) => props.color.textColor};
       bottom: 0;
-      content: "";
+      content: '';
       display: block;
       height: 2px;
       left: 0;
