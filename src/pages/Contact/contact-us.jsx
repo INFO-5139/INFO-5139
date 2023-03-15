@@ -2,6 +2,7 @@
 
 import emailjs from '@emailjs/browser';
 import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import {
   ImageStyle,
   CTAImage,
@@ -16,6 +17,7 @@ import {
   InputStyle,
 } from './contact-us.styles';
 const Contact = () => {
+  const themeColor = useSelector((state) => state.theme);
   const picture = require('../../assets/contact-plant.jpg');
   const form = useRef();
   const sendEmail = (e) => {
@@ -40,10 +42,10 @@ const Contact = () => {
   return (
     <>
       <GridMain>
-        <HeaderGrid>
+        <HeaderGrid colors={themeColor}>
           <h1>Contact us</h1>
         </HeaderGrid>
-        <RightSide>
+        <RightSide colors={themeColor}>
           <p>
             Thank you for reaching out, let us a know a little bit about
             yourself, and <br></br>
@@ -63,7 +65,7 @@ const Contact = () => {
           </ImageStyle>
         </RightSide>
         <LeftSide>
-          <FormStyle>
+          <FormStyle colors={themeColor}>
             <form
               ref={form}
               onSubmit={sendEmail}
@@ -95,12 +97,17 @@ const Contact = () => {
               <TextBox>
                 <textarea name='message' />
               </TextBox>
-              <SendButton onClick={sendEmail}>Send Message</SendButton>
+              <SendButton
+                colors={themeColor}
+                onClick={sendEmail}
+              >
+                Send Message
+              </SendButton>
             </form>
           </FormStyle>
         </LeftSide>
         <MiddleSide>
-          <FormStyle>
+          <FormStyle colors={themeColor}>
             <form
               ref={form}
               onSubmit={sendEmail}
@@ -132,7 +139,12 @@ const Contact = () => {
               <TextBox>
                 <textarea name='message' />
               </TextBox>
-              <SendButton onClick={sendEmail}>Send Email</SendButton>
+              <SendButton
+                colors={themeColor}
+                onClick={sendEmail}
+              >
+                Send Email
+              </SendButton>
             </form>
           </FormStyle>
         </MiddleSide>

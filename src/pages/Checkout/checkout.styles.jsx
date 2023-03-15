@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 
 export const FormStyle = styled.div`
@@ -6,15 +8,16 @@ export const FormStyle = styled.div`
     display: block;
     font-weight: bold;
     padding-top: 5%;
+    color: ${(props) => props.colors.textColor};
   }
 `;
 
 export const SendButton = styled.div`
-  background-color: #388b37;
+  background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 25px;
   border: none;
   padding: 1rem 0 1rem 0;
-  color: #fff;
+  color: ${(props) => props.colors.solidButtonColorText};
   margin-left: 2vw;
   font-size: 18px;
   text-decoration: none;
@@ -27,6 +30,7 @@ export const SendButton = styled.div`
 `;
 
 export const HeaderStyle = styled.div`
-    margin-left: 2vw;
-    margin-top: 2vw;
+  margin-left: 2vw;
+  margin-top: 2vw;
+  color: ${(props) => props.colors.textColor};
 `;

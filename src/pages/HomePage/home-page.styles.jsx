@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HomePageContainer = styled.div`
   padding: 23px 53px;
@@ -21,24 +21,25 @@ export const FirstScreenContainer = styled.div`
 export const HeadingOne = styled.h1`
   font-weight: 700;
   font-size: 50px;
-  color: #333;
+  color: ${(props) => props.colors.textColor};
   max-width: 700px;
   line-height: 1;
   margin-bottom: 30px;
 
   span {
-    color: #388b37;
+    color: ${(props) => props.colors.textHighlight};
   }
 `;
 
 export const Paragraph = styled.p`
   font-size: 20px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const PrimaryButton = styled.button`
   border: none;
-  background-color: #388b37;
-  color: #fff;
+  background-color: ${(props) => props.colors.solidButtonColor};
+  color: ${(props) => props.colors.solidButtonColorText};
   border-radius: 30px;
   padding: 14px 70px;
   font-size: 24px;
@@ -66,6 +67,7 @@ export const CTAImage = styled.img`
 export const HeadingTwo = styled.h2`
   font-size: 42px;
   margin-bottom: 25px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const ProductList = styled.div`
@@ -77,17 +79,17 @@ export const ProductList = styled.div`
 
 export const SaleButton = styled.button`
   background-color: transparent;
-  border: 3px solid #388b37;
+  border: 3px solid ${(props) => props.colors.solidButtonColor};
   border-radius: 30px;
   padding: 14px 70px;
   font-size: 24px;
   cursor: pointer;
-  color: #388b37;
+  color: ${(props) => props.colors.emptyButtonColorText};
   margin-left: 20px;
   transition: all 0.4s;
 
   &:hover {
-    background-color: #388b37;
-    color: #fff;
+    background-color: ${(props) => props.colors.solidButtonColor};
+    color: ${(props) => props.colors.solidButtonColorText};
   }
 `;

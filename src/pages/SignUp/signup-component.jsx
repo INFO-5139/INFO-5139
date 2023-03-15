@@ -16,8 +16,10 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 const SignUp = () => {
+  const themeColor = useSelector((state) => state.theme);
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
@@ -82,9 +84,9 @@ const SignUp = () => {
 
   return (
     <SignUpForm>
-      <Title>Sign Up</Title>
+      <Title colors={themeColor}>Sign Up</Title>
       {errorMessages.length > 0 && (
-        <ErrorMessageField>
+        <ErrorMessageField colors={themeColor}>
           <ErrorMessageTitle>Invalid Data:</ErrorMessageTitle>
           <ul>
             {errorMessages.map((error, index) => {
@@ -93,7 +95,7 @@ const SignUp = () => {
           </ul>
         </ErrorMessageField>
       )}
-      <FieldWrapper>
+      <FieldWrapper colors={themeColor}>
         <label>
           User Name:
           <InputField
@@ -125,6 +127,7 @@ const SignUp = () => {
         <Reenter>
           Re-enter Password:
           <TogglePasswordVisibility
+            colors={themeColor}
             onClick={showPasswordHandler}
             tabIndex='-1'
           >
@@ -140,7 +143,10 @@ const SignUp = () => {
           />
         </label>
       </FieldWrapper>
-      <SignUpButton onClick={(e) => createAccountHandler(e)}>
+      <SignUpButton
+        colors={themeColor}
+        onClick={(e) => createAccountHandler(e)}
+      >
         Create Account
       </SignUpButton>
     </SignUpForm>

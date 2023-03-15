@@ -13,11 +13,17 @@ export const LoginForm = styled.form`
 export const Title = styled.h1`
 margin-top 3rem;
   margin-bottom: 3rem;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const FieldWrapper = styled.div`
   width: 30%;
   font-weight: bold;
+  color: ${(props) => props.colors.textColor};
+
+  label {
+    color: ${(props) => props.colors.textColor};
+  }
 `;
 
 export const InputField = styled.input`
@@ -30,8 +36,8 @@ export const TogglePasswordVisibility = styled.button`
   display: flex;
   padding: 0.4rem 0.5rem 0.1rem 0.5rem;
   font-size: 2rem;
-  color: black;
-  background-color: white;
+  color: ${(props) => props.colors.passwordVisibilityToggle};
+  background-color: transparent;
   border-radius: 25px;
   border: none;
   margin: -1rem 0 0 auto;
@@ -43,25 +49,26 @@ export const EnterPassword = styled.div`
 `;
 
 export const LoginEmailButton = styled.button`
-  background-color: #388b37;
+  background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 25px;
   border: none;
   padding: 0.8rem 5rem 0.8rem 5rem;
-  color: #fff;
+  color: ${(props) => props.colors.solidButtonColorText};
   font-size: 18px;
 `;
 
 export const LoginGoogleButton = styled.button`
-  background-color: #388b37;
+  background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 25px;
   border: none;
   padding: 0.8rem 1.5rem 0.8rem 1.5rem;
-  color: #fff;
+  color: ${(props) => props.colors.solidButtonColorText};
   font-size: 18px;
   margin 2rem 0 0 0;
 `;
 
 export const NoAccount = styled.div`
+  color: ${(props) => props.colors.textColor};
   font-weight: bold;
   margin-top: 3rem;
 `;

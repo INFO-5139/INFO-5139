@@ -1,6 +1,6 @@
-import { Icon } from "@iconify/react";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Icon } from '@iconify/react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   CartItemContainer,
   Image,
@@ -10,16 +10,17 @@ import {
   TrashButton,
   QuantityButtonsContainer,
   ChangeQuantityButton,
-} from "./cart-item.styles";
-import { selectCartItems } from "../../redux/cart/cart.selector";
-import { updateCartItems } from "../../redux/cart/cart.reducer";
+} from './cart-item.styles';
+import { selectCartItems } from '../../redux/cart/cart.selector';
+import { updateCartItems } from '../../redux/cart/cart.reducer';
 import {
   decrementItemQuantity,
   incrementItemQuantity,
-} from "../../redux/cart/cart.utils";
+} from '../../redux/cart/cart.utils';
 
 const CartItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
+  const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const handleIncrementAmount = (itemToAdd) => {
@@ -38,31 +39,47 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <CartItemContainer>
+    <CartItemContainer colors={themeColor}>
       <ImageContainer>
-        <Image src={item.image} alt={item.name} />
+        <Image
+          src={item.image}
+          alt={item.name}
+        />
       </ImageContainer>
 
-      <CartItemName>
+      <CartItemName colors={themeColor}>
         <p>{item.name}</p>
       </CartItemName>
 
-      <CartItemPrice>
+      <CartItemPrice colors={themeColor}>
         <p>${item.price.toFixed(2)}</p>
       </CartItemPrice>
 
       <QuantityButtonsContainer>
-        <ChangeQuantityButton onClick={() => handleDecrementAmount(item)}>
+        <ChangeQuantityButton
+          colors={themeColor}
+          onClick={() => handleDecrementAmount(item)}
+        >
           -
         </ChangeQuantityButton>
         <span>{item.quantity}</span>
-        <ChangeQuantityButton onClick={() => handleIncrementAmount(item)}>
+        <ChangeQuantityButton
+          colors={themeColor}
+          onClick={() => handleIncrementAmount(item)}
+        >
           +
         </ChangeQuantityButton>
       </QuantityButtonsContainer>
 
-      <TrashButton onClick={() => removeItemFromCart(item)}>
-        <Icon icon="ph:trash-bold" width={35} height={35} />
+      <TrashButton
+        colors={themeColor}
+        onClick={() => removeItemFromCart(item)}
+      >
+        <Icon
+          icon='ph:trash-bold'
+          width={35}
+          height={35}
+        />
       </TrashButton>
     </CartItemContainer>
   );

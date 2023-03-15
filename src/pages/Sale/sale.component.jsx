@@ -1,37 +1,44 @@
-import React, { useState } from "react";
-import ProductItem from "../../components/product-item/product-item.component";
-import { HeadingTwo, ProductList } from "../HomePage/home-page.styles";
-import { SalePageContainer } from "./sale.styles";
-import ProductImage from "../../assets/product-item.png";
-import { nanoid } from "nanoid";
+import React, { useState } from 'react';
+import ProductItem from '../../components/product-item/product-item.component';
+// import { HeadingTwo, ProductList } from '../HomePage/home-page.styles';
+import { SalePageContainer, HeadingTwo, ProductList } from './sale.styles';
+import ProductImage from '../../assets/product-item.png';
+import { nanoid } from 'nanoid';
+import { useSelector } from 'react-redux';
 
 const SalePage = () => {
+  const themeColor = useSelector((state) => state.theme);
   const [itemsOnSale, setItemsOnSale] = useState([
     {
       id: nanoid(),
-      name: "Cactus",
+      name: 'Cactus',
       isOnSale: true,
       oldPrice: 19,
       price: 8,
-      tags: ["Waterless", "Small"],
+      tags: ['Waterless', 'Small'],
       image: ProductImage,
+      quantity: 22,
     },
     {
       id: nanoid(),
-      name: "Oak",
+      name: 'Oak',
       isOnSale: true,
       oldPrice: 25,
       price: 15,
-      tags: ["Tree", "Leafes", "Wood"],
+      tags: ['Tree', 'Leafes', 'Wood'],
       image: ProductImage,
+      quantity: 3,
     },
   ]);
   return (
     <SalePageContainer>
-      <HeadingTwo>THESE ITEMS ARE ON SALE!</HeadingTwo>
+      <HeadingTwo colors={themeColor}>THESE ITEMS ARE ON SALE!</HeadingTwo>
       <ProductList>
-        {itemsOnSale.map((item) => (
-          <ProductItem item={item} />
+        {itemsOnSale.map((item, index) => (
+          <ProductItem
+            key={index}
+            item={item}
+          />
         ))}
       </ProductList>
     </SalePageContainer>
