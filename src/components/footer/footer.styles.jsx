@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  background-color: #f4f4f4;
+  background-color: ${(props) => props.colors.backdropColor};
   padding: 70px 0;
 `;
 
