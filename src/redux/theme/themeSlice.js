@@ -27,7 +27,7 @@ export const themeSlice = createSlice({
       state.currentTheme = action.payload;
 
       if (state.currentTheme === 'light') {
-        state.backgroundColor = '#fff';
+        // state.backgroundColor = '#fff';
         state.backdropColor = '#c2edbf';
         state.solidButtonColor = '#388b37';
         state.solidButtonColorText = '#fff';
@@ -42,19 +42,19 @@ export const themeSlice = createSlice({
         state.passwordVisibilityToggle = '#000';
         return;
       }
-      state.backgroundColor = 'black';
-      state.backdropColor = 'black';
-      state.solidButtonColor = 'black';
-      state.solidButtonColorText = 'black';
-      state.emptyButtonColor = 'black';
-      state.emptyButtonColorText = 'black';
-      state.storeIconColor = 'black';
-      state.textColor = 'black';
+      // state.backgroundColor = 'black';
+      state.backdropColor = '#141f14';
+      state.solidButtonColor = '#466d46';
+      state.solidButtonColorText = '#fff';
+      state.emptyButtonColor = '#466d46';
+      state.emptyButtonColorText = '#466d46';
+      // state.storeIconColor = 'black';
+      state.textColor = '#e6e6e6';
       state.overlayColor = 'black';
-      state.textHighlight = 'black';
-      state.tagColor = 'black';
-      state.productItemBackground = 'black';
-      state.passwordVisibilityToggle = 'black;';
+      state.textHighlight = '#466d46';
+      state.tagColor = '#5a8c5a';
+      state.productItemBackground = '#14141f';
+      state.passwordVisibilityToggle = '#fff;';
       return;
     },
   },
