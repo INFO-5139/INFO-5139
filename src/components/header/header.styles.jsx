@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaLeaf } from 'react-icons/fa';
-import { RxAvatar } from "react-icons/rx";
+import { RxAvatar } from 'react-icons/rx';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -95,12 +95,11 @@ export const StoreIcon = styled(FaLeaf)`
 `;
 
 export const UserIcon = styled(RxAvatar)`
-font-size: 2em;
-color: #388b37;
-margin: 1rem 1rem 0 0;
-`
+  font-size: 2em;
+  color: #388b37;
+  margin: 1rem 1rem 0 0;
+`;
 
 export const DisplayName = styled.div`
-color: #0e360d;
-
-`
+  color: #0e360d;
+`;
