@@ -19,21 +19,15 @@ import { incrementItemQuantity } from '../../redux/cart/cart.utils';
 const ProductItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
-  console.log(item);
 
   const handleAddItemToCart = (e) => {
     e.preventDefault();
     const existingCartItem = cartItems.find((i) => i.id === item.id);
     if (existingCartItem) {
-      const newCartItems = incrementItemQuantity(
-        existingCartItem,
-        cartItems
-      );
+      const newCartItems = incrementItemQuantity(existingCartItem, cartItems);
       dispatch(updateCartItems(newCartItems));
     } else {
-      dispatch(
-        updateCartItems([...cartItems, { ...item, quantity: 1 }])
-      );
+      dispatch(updateCartItems([...cartItems, { ...item, quantity: 1 }]));
     }
   };
 
@@ -60,9 +54,7 @@ const ProductItem = ({ item }) => {
         <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
       )}
       <ProductQuantity>{item.quantity} in stock</ProductQuantity>
-      <ItemButton onClick={handleAddItemToCart}>
-        Add to cart
-      </ItemButton>
+      <ItemButton onClick={handleAddItemToCart}>Add to cart</ItemButton>
     </ProductItemContainer>
   );
 };
