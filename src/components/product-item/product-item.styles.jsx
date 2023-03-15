@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 
 export const ProductItemContainer = styled.div`
-  background-color: #f9f9f9;
+  background-color: ${(props) => props.colors.productItemBackground};
   max-width: 325px;
 `;
 
@@ -27,7 +27,7 @@ export const CategoriesContainer = styled.div`
   margin: 10px 0 10px 14px;
 
   span {
-    background-color: #c2edbf;
+    background-color: ${(props) => props.colors.tagColor};
     padding: 6px 8px;
     font-size: 10px;
   }
@@ -37,14 +37,13 @@ export const ProductPrice = styled.p`
   margin-left: 14px;
   font-size: 20px;
   font-weight: 700;
-  /* margin-bottom: 13px; */
 `;
 
 export const ItemButton = styled.button`
   cursor: pointer;
   width: 100%;
-  background-color: #388b37;
-  color: #fff;
+  background-color: ${(props) => props.colors.solidButtonColor};
+  color: ${(props) => props.colors.solidButtonColorText};
   font-weight: 700;
   font-size: 24px;
   border: none;

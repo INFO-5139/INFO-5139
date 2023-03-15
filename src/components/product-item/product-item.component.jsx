@@ -18,6 +18,7 @@ import { incrementItemQuantity } from '../../redux/cart/cart.utils';
 
 const ProductItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
+  const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
 
   const handleAddItemToCart = (e) => {
@@ -32,7 +33,7 @@ const ProductItem = ({ item }) => {
   };
 
   return (
-    <ProductItemContainer>
+    <ProductItemContainer colors={themeColor}>
       <ProductImageContainer>
         <img
           src={item.image}
@@ -40,7 +41,7 @@ const ProductItem = ({ item }) => {
         />
       </ProductImageContainer>
       <ProductItemTitle>{item.name}</ProductItemTitle>
-      <CategoriesContainer>
+      <CategoriesContainer colors={themeColor}>
         {item.tags.map((t) => (
           <span key={t}>{t}</span>
         ))}
@@ -54,7 +55,12 @@ const ProductItem = ({ item }) => {
         <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
       )}
       <ProductQuantity>{item.quantity} in stock</ProductQuantity>
-      <ItemButton onClick={handleAddItemToCart}>Add to cart</ItemButton>
+      <ItemButton
+        colors={themeColor}
+        onClick={handleAddItemToCart}
+      >
+        Add to cart
+      </ItemButton>
     </ProductItemContainer>
   );
 };
