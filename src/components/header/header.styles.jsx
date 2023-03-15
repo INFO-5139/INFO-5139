@@ -82,7 +82,7 @@ export const StoreIcon = styled(FaLeaf)`
 export const UserIcon = styled(RxAvatar)`
   transition: all 0.3s;
   font-size: 2em;
-  color: ${(props) => props.colors.solidButtonColor};
+  color: ${(props) => props.colors.storeIconColor};
   margin: 1rem 1rem 0 0;
 `;
 
