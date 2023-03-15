@@ -14,6 +14,7 @@ export const NavigationListItem = styled.li`
 
   a {
     text-decoration: none;
+    transition: all 0.3s;
     color: ${(props) => props.color.textColor};
     position: relative;
 

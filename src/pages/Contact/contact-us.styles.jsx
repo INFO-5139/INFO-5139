@@ -3,6 +3,7 @@
 import styled from 'styled-components';
 
 export const FormStyle = styled.div`
+  color: ${(props) => props.colors.textColor};
   label {
     display: block;
     font-weight: bold;
@@ -53,6 +54,7 @@ export const RightSide = styled.div`
   padding-bottom: 5%;
   p {
     padding-bottom: 20px;
+    color: ${(props) => props.colors.textColor};
   }
   // padding-bottom: 20%;
 `;
@@ -66,14 +68,15 @@ export const HeaderGrid = styled.div`
   padding-top: 3%;
   padding-bottom: 3%;
   padding-left: 22vw;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const SendButton = styled.div`
-  background-color: #388b37;
+  background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 25px;
   border: none;
   padding: 0.8rem 0 0.8rem 0;
-  color: #fff;
+  color: ${(props) => props.colors.solidButtonColorText};
   margin-left: 6vw;
   font-size: 18px;
   text-decoration: none;

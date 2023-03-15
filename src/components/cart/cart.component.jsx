@@ -28,8 +28,13 @@ const Cart = () => {
         }}
       />
       <CartContainer colors={themeColor}>
-        <HeadingTwo style={{ textAlign: 'center' }}>Cart</HeadingTwo>
-        <CartItemHeadings>
+        <HeadingTwo
+          colors={themeColor}
+          style={{ textAlign: 'center' }}
+        >
+          Cart
+        </HeadingTwo>
+        <CartItemHeadings colors={themeColor}>
           <span>Image</span>
           <span>Name</span>
           <span>Price</span>

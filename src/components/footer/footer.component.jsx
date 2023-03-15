@@ -8,7 +8,7 @@ const Footer = () => {
   const themeColor = useSelector((state) => state.theme);
   return (
     <FooterContainer colors={themeColor}>
-      <SocialsContainer>
+      <SocialsContainer colors={themeColor}>
         <a
           href='https://www.instagram.com'
           target='_blank'
@@ -17,7 +17,6 @@ const Footer = () => {
             icon='ph:instagram-logo-bold'
             width={36}
             height={36}
-            color={themeColor.solidButtonColor}
           />
         </a>
         <a
@@ -28,7 +27,6 @@ const Footer = () => {
             icon='ic:baseline-facebook'
             width={36}
             height={36}
-            color={themeColor.solidButtonColor}
           />
         </a>
         <a
@@ -39,7 +37,6 @@ const Footer = () => {
             icon='ic:baseline-telegram'
             width={36}
             height={36}
-            color={themeColor.solidButtonColor}
           />
         </a>
       </SocialsContainer>

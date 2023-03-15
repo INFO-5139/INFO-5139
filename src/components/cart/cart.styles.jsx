@@ -4,13 +4,15 @@ export const CartContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: ${(props) => props.colors.backgroundColor};
+  transition: all 0.3s;
+  background-color: ${(props) => props.colors.cartBackgroundColor};
   transform: translate(-50%, -50%);
   width: 70%;
   padding: 40px;
 `;
 
 export const Overlay = styled.div`
+  transition: all 0.3s;
   background-color: ${(props) => props.colors.overlayColor};
   opacity: 0.5;
   width: 100vw;
@@ -24,6 +26,7 @@ export const CartItemHeadings = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  color: ${(props) => props.colors.textColor};
 
   span {
     font-size: 20px;
@@ -42,8 +45,10 @@ export const CartItemHeadings = styled.div`
 export const TotalText = styled.p`
   font-weight: 700;
   font-size: 24px;
+  color: ${(props) => props.colors.textColor};
 
   span {
+    transition: all 0.3s;
     color: ${(props) => props.colors.textHighlight};
   }
 `;
@@ -56,6 +61,7 @@ export const CartBottomContainer = styled.div`
 `;
 
 export const CartButton = styled.button`
+  transition: all 0.3s;
   background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 30px;
   font-size: 22px;
@@ -66,6 +72,7 @@ export const CartButton = styled.button`
 `;
 
 export const ClearCartButton = styled.button`
+  transition: all 0.3s;
   background-color: transparent;
   border: none;
   cursor: pointer;

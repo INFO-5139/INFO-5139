@@ -39,7 +39,7 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <CartItemContainer>
+    <CartItemContainer colors={themeColor}>
       <ImageContainer>
         <Image
           src={item.image}
@@ -47,11 +47,11 @@ const CartItem = ({ item }) => {
         />
       </ImageContainer>
 
-      <CartItemName>
+      <CartItemName colors={themeColor}>
         <p>{item.name}</p>
       </CartItemName>
 
-      <CartItemPrice>
+      <CartItemPrice colors={themeColor}>
         <p>${item.price.toFixed(2)}</p>
       </CartItemPrice>
 
@@ -71,7 +71,10 @@ const CartItem = ({ item }) => {
         </ChangeQuantityButton>
       </QuantityButtonsContainer>
 
-      <TrashButton onClick={() => removeItemFromCart(item)}>
+      <TrashButton
+        colors={themeColor}
+        onClick={() => removeItemFromCart(item)}
+      >
         <Icon
           icon='ph:trash-bold'
           width={35}

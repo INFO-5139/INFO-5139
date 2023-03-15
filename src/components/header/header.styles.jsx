@@ -26,6 +26,8 @@ export const HeaderRightPart = styled.div`
 `;
 
 export const CartButton = styled.button`
+  transition: all 0.3s;
+  color: ${(props) => props.colors.cartIconColor};
   background-color: transparent;
   cursor: pointer;
   border: none;

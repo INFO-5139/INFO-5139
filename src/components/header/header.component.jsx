@@ -68,6 +68,7 @@ const Header = () => {
           </>
         )}
         <CartButton
+          colors={themeColor}
           onClick={(e) => {
             e.preventDefault();
             dispatch(updateIsActive(true));
@@ -77,6 +78,7 @@ const Header = () => {
             icon='ic:round-shopping-cart'
             width={30}
             height={30}
+            // color={themeColor.cartIconColor}
           />
         </CartButton>
         <ThemeToggle />

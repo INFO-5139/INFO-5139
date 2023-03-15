@@ -5,6 +5,10 @@ export const CartItemContainer = styled.div`
   align-items: center;
   margin-bottom: 10px;
   justify-content: space-between;
+
+  span {
+    color: ${(props) => props.colors.textColor};
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -24,12 +28,14 @@ export const CartItemName = styled.div`
   max-width: 160px;
   margin-right: 5%;
   width: 160px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const CartItemPrice = styled.div`
   font-size: 22px;
   margin-right: 11%;
   width: 20px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const QuantityButtonsContainer = styled.div`
@@ -48,10 +54,12 @@ export const ChangeQuantityButton = styled.button`
   height: 20px;
   cursor: pointer;
   text-align: center;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const TrashButton = styled.button`
   cursor: pointer;
   background-color: transparent;
   border: none;
+  color: ${(props) => props.colors.textColor};
 `;

@@ -33,6 +33,7 @@ export const HeadingOne = styled.h1`
 
 export const Paragraph = styled.p`
   font-size: 20px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const PrimaryButton = styled.button`
@@ -66,6 +67,7 @@ export const CTAImage = styled.img`
 export const HeadingTwo = styled.h2`
   font-size: 42px;
   margin-bottom: 25px;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const ProductList = styled.div`

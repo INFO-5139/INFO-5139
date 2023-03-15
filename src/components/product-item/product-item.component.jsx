@@ -40,21 +40,27 @@ const ProductItem = ({ item }) => {
           alt='Cactus'
         />
       </ProductImageContainer>
-      <ProductItemTitle>{item.name}</ProductItemTitle>
+      <ProductItemTitle colors={themeColor}>{item.name}</ProductItemTitle>
       <CategoriesContainer colors={themeColor}>
         {item.tags.map((t) => (
           <span key={t}>{t}</span>
         ))}
       </CategoriesContainer>
       {item.isOnSale ? (
-        <SalePricesContainer>
+        <SalePricesContainer colors={themeColor}>
           <p className='old-price'>${item.oldPrice.toFixed(2)}</p>
-          <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+          <ProductPrice colors={themeColor}>
+            ${item.price.toFixed(2)}
+          </ProductPrice>
         </SalePricesContainer>
       ) : (
-        <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+        <ProductPrice colors={themeColor}>
+          ${item.price.toFixed(2)}
+        </ProductPrice>
       )}
-      <ProductQuantity>{item.quantity} in stock</ProductQuantity>
+      <ProductQuantity colors={themeColor}>
+        {item.quantity} in stock
+      </ProductQuantity>
       <ItemButton
         colors={themeColor}
         onClick={handleAddItemToCart}
