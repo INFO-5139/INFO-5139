@@ -90,7 +90,8 @@ const Login = () => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const credential =
+          GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
         setTheUser(user);
@@ -99,7 +100,8 @@ const Login = () => {
       })
       .catch((err) => {
         const email = err.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(err);
+        const credential =
+          GoogleAuthProvider.credentialFromError(err);
         console.log('Error Code:', err.code);
         console.log('Error Message:', err.message);
         console.log('Email:', email);
@@ -123,9 +125,9 @@ const Login = () => {
 
   return (
     <LoginForm>
-      <Title>Login</Title>
+      <Title colors={themeColor}>Login</Title>
 
-      <FieldWrapper>
+      <FieldWrapper colors={themeColor}>
         <label>
           Email Address:
           <InputField
@@ -137,7 +139,7 @@ const Login = () => {
           />
         </label>
       </FieldWrapper>
-      <FieldWrapper>
+      <FieldWrapper colors={themeColor}>
         <EnterPassword>
           Password:
           <TogglePasswordVisibility
@@ -170,7 +172,9 @@ const Login = () => {
       >
         Sign in with Google
       </LoginGoogleButton>
-      <NoAccount colors={themeColor}>Don't have an account?</NoAccount>
+      <NoAccount colors={themeColor}>
+        Don't have an account?
+      </NoAccount>
       <SignUpLink>
         <Link
           to='/signup'

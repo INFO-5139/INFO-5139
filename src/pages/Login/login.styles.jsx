@@ -13,11 +13,17 @@ export const LoginForm = styled.form`
 export const Title = styled.h1`
 margin-top 3rem;
   margin-bottom: 3rem;
+  color: ${(props) => props.colors.textColor};
 `;
 
 export const FieldWrapper = styled.div`
   width: 30%;
   font-weight: bold;
+  color: ${(props) => props.colors.textColor};
+
+  label {
+    color: ${(props) => props.colors.textColor};
+  }
 `;
 
 export const InputField = styled.input`
