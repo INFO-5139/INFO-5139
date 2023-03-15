@@ -14,7 +14,7 @@ import {
 } from './header.styles';
 import { Icon } from '@iconify/react';
 import Navigation from '../navigation/navigation.component';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateIsActive } from '../../redux/cart/cart.reducer';
 import { auth } from './../../api/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
@@ -23,6 +23,7 @@ import ThemeToggle from '../theme-toggle/theme-toggle';
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const themeColor = useSelector((state) => state.theme);
 
   const logout = async () => {
     console.log('Here is the user before auth.signout: ', auth.currentUser);
@@ -37,19 +38,31 @@ const Header = () => {
   };
 
   return (
-    <HeaderContainer>
+    <HeaderContainer colors={themeColor}>
       <HeaderLeftPart>
-        <StoreIcon />
-        <Navigation color='#333' />
+        <StoreIcon colors={themeColor} />
+        <Navigation />
       </HeaderLeftPart>
       <HeaderRightPart>
-        {auth.currentUser === null && <LoginLink to='login'>Log In</LoginLink>}
+        {auth.currentUser === null && (
+          <LoginLink
+            to='login'
+            colors={themeColor}
+          >
+            Log In
+          </LoginLink>
+        )}
 
         {auth.currentUser !== null && (
           <>
-            <LogoutButton onClick={() => logout()}>Log out</LogoutButton>
-            <DisplayName>
-              <UserIcon></UserIcon>
+            <LogoutButton
+              onClick={() => logout()}
+              colors={themeColor}
+            >
+              Log out
+            </LogoutButton>
+            <DisplayName colors={themeColor}>
+              <UserIcon colors={themeColor}></UserIcon>
               <p>{auth.currentUser.displayName}</p>
             </DisplayName>
           </>
