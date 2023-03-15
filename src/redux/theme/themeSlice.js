@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   currentTheme: 'light',
-  backgroundColor: 'gray',
+  backgroundColor: '#fff',
   backdropColor: '#c2edbf',
   solidButtonColor: '#388b37',
   solidButtonColorText: '#fff',
@@ -12,6 +12,7 @@ const initialState = {
   emptyButtonColorText: '#388b37',
   storeIconColor: '#388b37',
   textColor: '#333',
+  overlayColor: '#000',
   textHighlight: '#388b37',
   tagColor: '#c2edbf',
 };
@@ -32,6 +33,7 @@ export const themeSlice = createSlice({
         state.emptyButtonColorText = '#388b37';
         state.storeIconColor = '#388b37';
         state.textColor = '#333';
+        state.overlayColor = '#000';
         state.textHighlight = '#388b37';
         state.tagColor = '#c2edbf';
         return;
@@ -44,6 +46,7 @@ export const themeSlice = createSlice({
       state.emptyButtonColorText = 'black';
       state.storeIconColor = 'black';
       state.textColor = 'black';
+      state.overlayColor = 'black';
       state.textHighlight = 'black';
       state.tagColor = 'black';
       return;
