@@ -6,6 +6,7 @@ import { FaLeaf } from 'react-icons/fa';
 import { RxAvatar } from 'react-icons/rx';
 
 export const HeaderContainer = styled.header`
+  transition: all 0.3s;
   width: 100%;
   background-color: ${(props) => props.colors.backdropColor};
   padding: 23px 53px;
@@ -69,6 +70,7 @@ export const LogoutButton = styled.button`
 `;
 
 export const StoreIcon = styled(FaLeaf)`
+  transition: all 0.3s;
   color: ${(props) => props.colors.solidButtonColor};
   height: 2.5rem;
   width: 2.5rem;
@@ -76,11 +78,13 @@ export const StoreIcon = styled(FaLeaf)`
 `;
 
 export const UserIcon = styled(RxAvatar)`
+  transition: all 0.3s;
   font-size: 2em;
   color: ${(props) => props.colors.solidButtonColor};
   margin: 1rem 1rem 0 0;
 `;
 
 export const DisplayName = styled.div`
+  transition: all 0.3s;
   color: ${(props) => props.colors.textColor};
 `;
