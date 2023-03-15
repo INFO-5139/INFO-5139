@@ -16,6 +16,7 @@ const initialState = {
   textHighlight: '#388b37',
   tagColor: '#c2edbf',
   productItemBackground: '#f9f9f9',
+  passwordVisibilityToggle: '#000',
 };
 
 export const themeSlice = createSlice({
@@ -38,6 +39,7 @@ export const themeSlice = createSlice({
         state.textHighlight = '#388b37';
         state.tagColor = '#c2edbf';
         state.productItemBackground = '#f9f9f9';
+        state.passwordVisibilityToggle = '#000';
         return;
       }
       state.backgroundColor = 'black';
@@ -52,6 +54,7 @@ export const themeSlice = createSlice({
       state.textHighlight = 'black';
       state.tagColor = 'black';
       state.productItemBackground = 'black';
+      state.passwordVisibilityToggle = 'black;';
       return;
     },
   },
