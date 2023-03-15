@@ -15,6 +15,7 @@ const initialState = {
   overlayColor: '#000',
   textHighlight: '#388b37',
   tagColor: '#c2edbf',
+  productItemBackground: '#f9f9f9',
 };
 
 export const themeSlice = createSlice({
@@ -36,6 +37,7 @@ export const themeSlice = createSlice({
         state.overlayColor = '#000';
         state.textHighlight = '#388b37';
         state.tagColor = '#c2edbf';
+        state.productItemBackground = '#f9f9f9';
         return;
       }
       state.backgroundColor = 'black';
@@ -49,6 +51,7 @@ export const themeSlice = createSlice({
       state.overlayColor = 'black';
       state.textHighlight = 'black';
       state.tagColor = 'black';
+      state.productItemBackground = 'black';
       return;
     },
   },
