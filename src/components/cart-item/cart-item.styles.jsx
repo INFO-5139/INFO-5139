@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CartItemContainer = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ export const QuantityButtonsContainer = styled.div`
 
 export const ChangeQuantityButton = styled.button`
   background-color: transparent;
-  border: 1px solid #388b37;
+  border: 1px solid ${(props) => props.colors.solidButtonColor};
   border-radius: 50%;
   width: 20px;
   height: 20px;
