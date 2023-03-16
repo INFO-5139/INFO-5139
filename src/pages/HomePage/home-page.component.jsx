@@ -63,7 +63,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <HomePageContainer>
+    <HomePageContainer products={winterCollection}> 
       <FirstScreenContainer>
         <CTAContainer>
           <HeadingOne>
@@ -108,6 +108,7 @@ const HomePage = () => {
             item={item}
           />
         ))}
+        
       </ProductList>
     </HomePageContainer>
   );

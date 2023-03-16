@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   signInWithEmailAndPassword,
-  signOut,
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
 import { auth } from './../../api/firebaseConfig';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-
 import {
   LoginForm,
   Title,
@@ -30,7 +28,6 @@ import {
 const Login = () => {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
- 
   // eslint-disable-next-line
   const [showPasswords, setShowPasswords] = useState(false);
   const provider = new GoogleAuthProvider();
@@ -57,6 +54,7 @@ const Login = () => {
       console.log('User:', user);
       window.alert('Successfully signed in.');
       setTheUser(user);
+      
       
     })
     .catch((err) => {

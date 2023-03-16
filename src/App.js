@@ -9,6 +9,7 @@ import Login from "./pages/Login/login-component";
 import SignUp from "./pages/SignUp/signup-component";
 import Cart from "./components/cart/cart.component";
 import Contact from "./pages/Contact/contact-us";
+import ProductDetailPage from './pages/ProductDetailPage';
 import { useSelector } from "react-redux";
 import { selectIsActive } from "./redux/cart/cart.selector";
 import AboutUs from "./pages/AboutUs/about-us.component";
@@ -17,6 +18,7 @@ import Checkout from "./pages/Checkout/checkout";
 import SalePage from "./pages/Sale/sale.component";
 function App() {
   const isCartActive = useSelector(selectIsActive);
+
   return (
     <div>
       <Header />
@@ -28,6 +30,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="account" element={<Account />} />
 
+        <Route path="product/:id" element={<ProductDetailPage />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="sale" element={<SalePage />} />
       </Routes>

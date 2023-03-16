@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   HeaderContainer,
   HeaderLeftPart,
@@ -13,6 +13,7 @@ import {
   DisplayName,
 } from "./header.styles";
 import { Icon } from "@iconify/react";
+
 import Navigation from "../navigation/navigation.component";
 import { useDispatch } from "react-redux";
 import { updateIsActive } from "../../redux/cart/cart.reducer";
@@ -22,6 +23,9 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+  console.log('first load from header: ', auth.currentUser)
 
   const logout = async () => {
     console.log("Here is the user before auth.signout: ", auth.currentUser);
