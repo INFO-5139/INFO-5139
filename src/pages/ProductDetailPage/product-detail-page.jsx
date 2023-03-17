@@ -1,6 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+
+import {
+    ProductItemTitle,
+    ProductItem,
+    ProductItemContainer,
+    ProductImageContainer,
+    ProductPrice,
+    ProductDescription
+} from './product-detail-page.style';
 
 
 export default function ItemDetailPage() {
@@ -11,14 +20,20 @@ export default function ItemDetailPage() {
 
 
     return (
-        <>
-            <div>id: {params.id}</div>
-            <div>{item.image}</div>
-            <div>{item.name}</div>
-            <div>{item.price}</div>
-            <div>{item.description}</div>
 
 
-        </>
+        <ProductItemContainer>
+            <ProductItem>
+            <ProductItemTitle>{item.name}</ProductItemTitle>
+                <ProductImageContainer>
+                    <img
+                    src={item.image}
+                    alt='cacuts'
+                    />
+                </ProductImageContainer>
+                <ProductPrice>Price: ${item.price}</ProductPrice>
+            </ProductItem>
+                <ProductDescription>{item.description}</ProductDescription>
+        </ProductItemContainer>
     )
 }
