@@ -8,7 +8,12 @@ max-width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-wrap: wrap;
 gap: 6%;
+
+@media (max-width: 768px) {
+    margin: 5%;
+}
 
 `;
 
