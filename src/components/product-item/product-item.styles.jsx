@@ -1,11 +1,15 @@
-/** @format */
-
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ProductItemContainer = styled.div`
   transition: all 0.3s;
   background-color: ${(props) => props.colors.productItemBackground};
   max-width: 325px;
+`;
+
+export const ProductLink = styled(Link)`
+  text-decoration: none;
+  color: #000000;
 `;
 
 export const ProductImageContainer = styled.div`

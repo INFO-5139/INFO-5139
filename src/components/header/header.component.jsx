@@ -25,8 +25,13 @@ const Header = () => {
   const navigate = useNavigate();
   const themeColor = useSelector((state) => state.theme);
 
+  console.log('first load from header: ', auth.currentUser);
+
   const logout = async () => {
-    console.log('Here is the user before auth.signout: ', auth.currentUser);
+    console.log(
+      'Here is the user before auth.signout: ',
+      auth.currentUser
+    );
 
     // sign user out
     try {
@@ -78,7 +83,6 @@ const Header = () => {
             icon='ic:round-shopping-cart'
             width={30}
             height={30}
-            // color={themeColor.cartIconColor}
           />
         </CartButton>
         <ThemeToggle />
