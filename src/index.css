@@ -19,3 +19,13 @@ code {
   outline: 0;
   box-sizing: border-box;
 }
+
+.light {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.dark {
+  background-color: #0a0a0f;
+  min-height: 100vh;
+}

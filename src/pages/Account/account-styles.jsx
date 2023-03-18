@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const PrimaryButton = styled.button`
   border: none;
-  background-color: #388b37;
-  color: #fff;
+  background-color: ${(props) => props.colors.solidButtonColor};
+  color: ${(props) => props.colors.solidButtonColorText};
   border-radius: 30px;
   padding: 14px 70px;
   font-size: 24px;

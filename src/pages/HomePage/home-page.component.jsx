@@ -17,29 +17,33 @@ import {
 import Image from '../../assets/main_image.jpg';
 import { useNavigate } from 'react-router-dom';
 import ProductItem from '../../components/product-item/product-item.component';
-
 import { useSelector } from 'react-redux';
-const HomePage = () => {
 
-  const  winterCollection  = useSelector((state) => state.frontPageCollection.collection)
+const HomePage = () => {
+  const themeColor = useSelector((state) => state.theme);
+
+  const winterCollection = useSelector(
+    (state) => state.frontPageCollection.collection
+  );
   console.log('wintercoloection: ', winterCollection);
 
   const navigate = useNavigate();
 
   return (
-    <HomePageContainer products={winterCollection}> 
+    <HomePageContainer products={winterCollection}>
       <FirstScreenContainer>
         <CTAContainer>
-          <HeadingOne>
+          <HeadingOne colors={themeColor}>
             Faux the real, go for <span>Fauxliage</span>
           </HeadingOne>
-          <Paragraph>
+          <Paragraph colors={themeColor}>
             Fake plants that look real. Now time to check new winter
             collection. Say no to allergies and welcome new colours
             into your home.
           </Paragraph>
           <div>
             <PrimaryButton
+              colors={themeColor}
               onClick={(e) => {
                 e.preventDefault();
                 navigate('/shop');
@@ -48,6 +52,7 @@ const HomePage = () => {
               Shop Now
             </PrimaryButton>
             <SaleButton
+              colors={themeColor}
               onClick={(e) => {
                 e.preventDefault();
                 navigate('/sale');
@@ -64,15 +69,16 @@ const HomePage = () => {
           />
         </ImageContainer>
       </FirstScreenContainer>
-      <HeadingTwo>Our winter collection</HeadingTwo>
-      <ProductList>
+      <HeadingTwo colors={themeColor}>
+        Our winter collection
+      </HeadingTwo>
+      <ProductList colors={themeColor}>
         {winterCollection.map((item) => (
           <ProductItem
             key={item.id}
             item={item}
           />
         ))}
-        
       </ProductList>
     </HomePageContainer>
   );

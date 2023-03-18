@@ -12,15 +12,15 @@ import {
   ProductImageContainer,
   SalePricesContainer,
   ProductQuantity,
- ProductLink,
+  ProductLink,
 } from './product-item.styles';
 import { selectCartItems } from '../../redux/cart/cart.selector';
 import { updateCartItems } from '../../redux/cart/cart.reducer';
 import { incrementItemQuantity } from '../../redux/cart/cart.utils';
 
-
 const ProductItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
+  const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   console.log('item from inside product-item: ', item);
 
@@ -41,7 +41,7 @@ const ProductItem = ({ item }) => {
   };
 
   return (
-    <ProductItemContainer >
+    <ProductItemContainer colors={themeColor}>
       <ProductLink to={'/product/' + item.id}>
         <ProductImageContainer>
           <img
@@ -49,28 +49,36 @@ const ProductItem = ({ item }) => {
             alt='Cactus'
           />
         </ProductImageContainer>
-        <ProductItemTitle>{item.name}</ProductItemTitle>
-        <CategoriesContainer>
+        <ProductItemTitle colors={themeColor}>
+          {item.name}
+        </ProductItemTitle>
+        <CategoriesContainer colors={themeColor}>
           {item.tags.map((t) => (
             <span key={t}>{t}</span>
           ))}
         </CategoriesContainer>
         {item.isOnSale ? (
-          <SalePricesContainer>
+          <SalePricesContainer colors={themeColor}>
             <p className='old-price'>${item.oldPrice.toFixed(2)}</p>
-            <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+            <ProductPrice colors={themeColor}>
+              ${item.price.toFixed(2)}
+            </ProductPrice>
           </SalePricesContainer>
         ) : (
-          <ProductPrice>${item.price.toFixed(2)}</ProductPrice>
+          <ProductPrice colors={themeColor}>
+            ${item.price.toFixed(2)}
+          </ProductPrice>
         )}
-        <ProductQuantity>{item.quantity} in stock</ProductQuantity>
+        <ProductQuantity colors={themeColor}>
+          {item.quantity} in stock
+        </ProductQuantity>
       </ProductLink>
-      <ItemButton onClick={handleAddItemToCart}>
+      <ItemButton
+        colors={themeColor}
+        onClick={handleAddItemToCart}
+      >
         Add to cart
       </ItemButton>
-
-    
-      
     </ProductItemContainer>
   );
 };

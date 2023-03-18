@@ -1,80 +1,86 @@
-/** @format */
-
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const ProductItemContainer = styled.div`
-  background-color: #f9f9f9;
+  transition: all 0.3s;
+  background-color: ${(props) => props.colors.productItemBackground};
   max-width: 325px;
-  
-  `;
+`;
 
-  export const ProductLink = styled(Link)`
+export const ProductLink = styled(Link)`
   text-decoration: none;
   color: #000000;
-  `
+`;
 
-  export const ProductImageContainer = styled.div`
+export const ProductImageContainer = styled.div`
   max-height: 220px;
   width: 100%;
   overflow: hidden;
-  `;
-  
-  export const ProductItemTitle = styled.h4`
+`;
+
+export const ProductItemTitle = styled.h4`
+  transition: all 0.3s;
+
   font-size: 24px;
   margin-left: 14px;
   margin-top: 10px;
-  `;
-  
-  export const CategoriesContainer = styled.div`
+  color: ${(props) => props.colors.textColor};
+`;
+
+export const CategoriesContainer = styled.div`
   margin-left: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 10px 0 10px 14px;
-  
+
   span {
-    background-color: #c2edbf;
+    transition: all 0.3s;
+    background-color: ${(props) => props.colors.tagColor};
     padding: 6px 8px;
     font-size: 10px;
   }
-  `;
-  
-  export const ProductPrice = styled.p`
+`;
+
+export const ProductPrice = styled.p`
+  transition: all 0.3s;
   margin-left: 14px;
   font-size: 20px;
   font-weight: 700;
-  /* margin-bottom: 13px; */
-  `;
+  color: ${(props) => props.colors.textColor};
+`;
 
-  export const ItemButton = styled.button`
+export const ItemButton = styled.button`
+  transition: all 0.3s;
   cursor: pointer;
   width: 100%;
-  background-color: #388b37;
-  color: #fff;
+  background-color: ${(props) => props.colors.solidButtonColor};
+  color: ${(props) => props.colors.solidButtonColorText};
   font-weight: 700;
   font-size: 24px;
   border: none;
   padding: 10px 0;
   margin-top: 13px;
-  `;
-  
-  export const SalePricesContainer = styled.div`
+`;
+
+export const SalePricesContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 14px;
   /* margin-bottom: 13px; */
-  
+
   p.old-price {
+    transition: all 0.3s;
     font-size: 20px;
     text-decoration: line-through;
+    color: ${(props) => props.colors.textColor} !important;
   }
-  `;
-  
-  export const ProductQuantity = styled.span`
+`;
+
+export const ProductQuantity = styled.span`
+  transition: all 0.3s;
   padding: 0.5rem 0 0 0.9rem;
   display: flex;
   font-size: 20px;
-  `;
-  
- 
+  color: ${(props) => props.colors.textColor};
+`;

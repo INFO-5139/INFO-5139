@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   CartBottomContainer,
   CartButton,
@@ -7,27 +7,34 @@ import {
   ClearCartButton,
   Overlay,
   TotalText,
-} from "./cart.styles";
-import { HeadingTwo } from "../../pages/HomePage/home-page.styles";
-import { useDispatch, useSelector } from "react-redux";
-import { updateCartItems, updateIsActive } from "../../redux/cart/cart.reducer";
-import CartItem from "../cart-item/cart-item.component";
-import { selectCartItems } from "../../redux/cart/cart.selector";
-import { useNavigate } from "react-router-dom";
+} from './cart.styles';
+import { HeadingTwo } from '../../pages/HomePage/home-page.styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCartItems, updateIsActive } from '../../redux/cart/cart.reducer';
+import CartItem from '../cart-item/cart-item.component';
+import { selectCartItems } from '../../redux/cart/cart.selector';
+import { useNavigate } from 'react-router-dom';
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
+  const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <>
       <Overlay
+        colors={themeColor}
         onClick={() => {
           dispatch(updateIsActive(false));
         }}
       />
-      <CartContainer>
-        <HeadingTwo style={{ textAlign: "center" }}>Cart</HeadingTwo>
-        <CartItemHeadings>
+      <CartContainer colors={themeColor}>
+        <HeadingTwo
+          colors={themeColor}
+          style={{ textAlign: 'center' }}
+        >
+          Cart
+        </HeadingTwo>
+        <CartItemHeadings colors={themeColor}>
           <span>Image</span>
           <span>Name</span>
           <span>Price</span>
@@ -37,12 +44,17 @@ const Cart = () => {
 
         <div>
           {cartItems.length > 0
-            ? cartItems.map((item) => <CartItem item={item} key={item.id} />)
-            : "Cart is empty"}
+            ? cartItems.map((item) => (
+                <CartItem
+                  item={item}
+                  key={item.id}
+                />
+              ))
+            : 'Cart is empty'}
         </div>
 
         <CartBottomContainer>
-          <TotalText>
+          <TotalText colors={themeColor}>
             Total:
             <span>
               $
@@ -54,6 +66,7 @@ const Cart = () => {
 
           <div>
             <ClearCartButton
+              colors={themeColor}
               onClick={(e) => {
                 e.preventDefault();
                 dispatch(updateCartItems([]));
@@ -63,9 +76,10 @@ const Cart = () => {
             </ClearCartButton>
 
             <CartButton
+              colors={themeColor}
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/Checkout");
+                navigate('/Checkout');
               }}
             >
               Next Step

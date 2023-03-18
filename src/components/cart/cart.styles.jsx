@@ -1,17 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CartContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: #fff;
+  transition: all 0.3s;
+  background-color: ${(props) => props.colors.cartBackgroundColor};
   transform: translate(-50%, -50%);
   width: 70%;
   padding: 40px;
 `;
 
 export const Overlay = styled.div`
-  background-color: #000;
+  transition: all 0.3s;
+  background-color: ${(props) => props.colors.overlayColor};
   opacity: 0.5;
   width: 100vw;
   height: 100vh;
@@ -24,6 +26,7 @@ export const CartItemHeadings = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  color: ${(props) => props.colors.textColor};
 
   span {
     font-size: 20px;
@@ -42,9 +45,11 @@ export const CartItemHeadings = styled.div`
 export const TotalText = styled.p`
   font-weight: 700;
   font-size: 24px;
+  color: ${(props) => props.colors.textColor};
 
   span {
-    color: #388b37;
+    transition: all 0.3s;
+    color: ${(props) => props.colors.textHighlight};
   }
 `;
 
@@ -56,21 +61,23 @@ export const CartBottomContainer = styled.div`
 `;
 
 export const CartButton = styled.button`
-  background-color: #388b37;
+  transition: all 0.3s;
+  background-color: ${(props) => props.colors.solidButtonColor};
   border-radius: 30px;
   font-size: 22px;
   border: none;
-  color: #fff;
+  color: ${(props) => props.colors.solidButtonColorText};
   padding: 14px 40px;
   cursor: pointer;
 `;
 
 export const ClearCartButton = styled.button`
+  transition: all 0.3s;
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 18px;
   margin-right: 20px;
-  color: #388b37;
+  color: ${(props) => props.colors.textHighlight};
   text-decoration: underline;
 `;
