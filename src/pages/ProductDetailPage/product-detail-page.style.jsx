@@ -16,6 +16,7 @@ export const ProductItemContainer = styled.div`
 
 export const ProductItem = styled.div`
   margin: 5% 0;
+ 
 `;
 
 export const ProductItemTitle = styled.h4`
@@ -46,7 +47,15 @@ export const SalesPrice = styled.p`
 
 
 export const ProductDescription = styled.p`
-  color: ${(props) => props.colors.textColor};
-  margin-top: 5%;
+  color: ${(props) => props.colors.textColor}; 
   width: 500px;
+  height: 400px;
+  margin-top: 5rem;
+ 
+ 
 `;
+
+export const RatingContainer = styled.div`
+display: flex;
+justify-content: space-between;
+`

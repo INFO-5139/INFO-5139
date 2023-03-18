@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import ItemRating from '../../components/itemRating/ItemRating.js';
+import RateThisItem from '../../components/itemRating/RateThisItem.js';
+
 import {
   ProductItemTitle,
   ProductItem,
@@ -10,6 +13,7 @@ import {
   ProductPrice,
   ProductDescription,
   SalesPrice,
+  RatingContainer,
 } from './product-detail-page.style';
 
 export default function ItemDetailPage() {
@@ -32,10 +36,10 @@ export default function ItemDetailPage() {
  }
 
  console.log('here is the item from productDetialPage: ', item)
-
-  return (
-    
-    <ProductItemContainer>
+ 
+ return (
+     
+     <ProductItemContainer>
       <ProductItem>
         <ProductItemTitle colors={themeColor}>
           {item.name}
@@ -44,7 +48,7 @@ export default function ItemDetailPage() {
           <img
             src={item.image}
             alt='cacuts'
-          />
+            />
         </ProductImageContainer>
         {collectionItem &&
         <ProductPrice colors={themeColor}>
@@ -52,7 +56,7 @@ export default function ItemDetailPage() {
         </ProductPrice>
         }
         {salesItem && (
-        <>
+            <>
          <ProductPrice colors={themeColor}>
          Regular Price: ${item.price.toFixed(2)}
        </ProductPrice>
@@ -62,10 +66,21 @@ export default function ItemDetailPage() {
         </SalesPrice>
         </> )}
 
+
+        <RatingContainer>
+            <ItemRating 
+                generalRating={item.generalRating}
+                title={'Rating:'}></ItemRating>
+            <RateThisItem id={item.id}></RateThisItem>
+        </RatingContainer>
+
+
+
       </ProductItem>
       <ProductDescription colors={themeColor}>
         {item.description}
       </ProductDescription>
+
     </ProductItemContainer>
   );
 }
