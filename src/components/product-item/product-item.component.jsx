@@ -59,9 +59,9 @@ const ProductItem = ({ item }) => {
         </CategoriesContainer>
         {item.isOnSale ? (
           <SalePricesContainer colors={themeColor}>
-            <p className='old-price'>${item.oldPrice.toFixed(2)}</p>
+            <p className='old-price'>${item.price.toFixed(2)}</p>
             <ProductPrice colors={themeColor}>
-              ${item.price.toFixed(2)}
+              ${item.salesPrice.toFixed(2)}
             </ProductPrice>
           </SalePricesContainer>
         ) : (

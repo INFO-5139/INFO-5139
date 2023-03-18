@@ -36,6 +36,15 @@ export const ProductPrice = styled.p`
   font-weight: 700;
   margin-top: 1%;
 `;
+
+export const SalesPrice = styled.p`
+  color: red;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 1%;
+`;
+
+
 export const ProductDescription = styled.p`
   color: ${(props) => props.colors.textColor};
   margin-top: 5%;
