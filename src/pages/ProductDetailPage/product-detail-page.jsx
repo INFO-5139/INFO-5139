@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -9,20 +9,32 @@ import {
   ProductImageContainer,
   ProductPrice,
   ProductDescription,
+  SalesPrice,
 } from './product-detail-page.style';
 
 export default function ItemDetailPage() {
+    let item;
   const params = useParams();
   const themeColor = useSelector((state) => state.theme);
-  const item = useSelector((state) =>
+  
+  const collectionItem = useSelector((state) =>
     state.frontPageCollection.collection.find(
-      (item) => item.id === params.id
-    )
-  );
+      (item) => item.id === params.id));
 
-  console.log('item from within itemdetailpage: ', item);
+    const salesItem = useSelector((state) => 
+    state.salesCollection.salesCollection.find(
+        (item) => item.id === params.id));
+
+ if (collectionItem  && !salesItem) {
+    item = collectionItem
+ } else if(!collectionItem && salesItem) {
+    item = salesItem
+ }
+
+ console.log('here is the item from productDetialPage: ', item)
 
   return (
+    
     <ProductItemContainer>
       <ProductItem>
         <ProductItemTitle colors={themeColor}>
@@ -34,9 +46,22 @@ export default function ItemDetailPage() {
             alt='cacuts'
           />
         </ProductImageContainer>
+        {collectionItem &&
         <ProductPrice colors={themeColor}>
           Price: ${item.price.toFixed(2)}
         </ProductPrice>
+        }
+        {salesItem && (
+        <>
+         <ProductPrice colors={themeColor}>
+         Regular Price: ${item.price.toFixed(2)}
+       </ProductPrice>
+        
+        <SalesPrice colors={themeColor}>
+          Sales Price: ${item.salesPrice.toFixed(2)}
+        </SalesPrice>
+        </> )}
+
       </ProductItem>
       <ProductDescription colors={themeColor}>
         {item.description}
