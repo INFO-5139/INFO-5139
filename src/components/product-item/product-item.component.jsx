@@ -17,6 +17,7 @@ import {
 import { selectCartItems } from '../../redux/cart/cart.selector';
 import { updateCartItems } from '../../redux/cart/cart.reducer';
 import { incrementItemQuantity } from '../../redux/cart/cart.utils';
+import ItemRating from '../itemRating/ItemRating';
 
 const ProductItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
@@ -72,6 +73,7 @@ const ProductItem = ({ item }) => {
         <ProductQuantity colors={themeColor}>
           {item.quantity} in stock
         </ProductQuantity>
+        <ItemRating generalRating={item.generalRating}></ItemRating>
       </ProductLink>
       <ItemButton
         colors={themeColor}
