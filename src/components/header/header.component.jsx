@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   HeaderContainer,
   HeaderLeftPart,
@@ -21,17 +21,27 @@ import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../theme-toggle/theme-toggle';
 
 const Header = () => {
+  const [displayName, setDisplayName] = useState();
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const themeColor = useSelector((state) => state.theme);
 
-  console.log('first load from header: ', auth.currentUser);
+  // console.log('first load from header: ', auth.currentUser);
+
+  // let userLoggedIn;
+
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      setUserLoggedIn(true);
+      // userLoggedIn = true;
+      setDisplayName(auth.currentUser.displayName);
+      console.log(displayName);
+    }
+  });
 
   const logout = async () => {
-    console.log(
-      'Here is the user before auth.signout: ',
-      auth.currentUser
-    );
+    console.log('Here is the user before auth.signout: ', auth.currentUser);
 
     // sign user out
     try {
@@ -49,7 +59,7 @@ const Header = () => {
         <Navigation />
       </HeaderLeftPart>
       <HeaderRightPart>
-        {auth.currentUser === null && (
+        {userLoggedIn === false && (
           <LoginLink
             to='login'
             colors={themeColor}
@@ -58,7 +68,7 @@ const Header = () => {
           </LoginLink>
         )}
 
-        {auth.currentUser !== null && (
+        {userLoggedIn !== true && (
           <>
             <LogoutButton
               onClick={() => logout()}
@@ -68,7 +78,7 @@ const Header = () => {
             </LogoutButton>
             <DisplayName colors={themeColor}>
               <UserIcon colors={themeColor}></UserIcon>
-              <p>{auth.currentUser.displayName}</p>
+              <p>{displayName}</p>
             </DisplayName>
           </>
         )}

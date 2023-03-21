@@ -22,21 +22,16 @@ const ProductItem = ({ item }) => {
   const cartItems = useSelector(selectCartItems);
   const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
-  console.log('item from inside product-item: ', item);
+  // console.log('item from inside product-item: ', item);
 
   const handleAddItemToCart = (e) => {
     e.preventDefault();
     const existingCartItem = cartItems.find((i) => i.id === item.id);
     if (existingCartItem) {
-      const newCartItems = incrementItemQuantity(
-        existingCartItem,
-        cartItems
-      );
+      const newCartItems = incrementItemQuantity(existingCartItem, cartItems);
       dispatch(updateCartItems(newCartItems));
     } else {
-      dispatch(
-        updateCartItems([...cartItems, { ...item, quantity: 1 }])
-      );
+      dispatch(updateCartItems([...cartItems, { ...item, quantity: 1 }]));
     }
   };
 
@@ -49,9 +44,7 @@ const ProductItem = ({ item }) => {
             alt='Cactus'
           />
         </ProductImageContainer>
-        <ProductItemTitle colors={themeColor}>
-          {item.name}
-        </ProductItemTitle>
+        <ProductItemTitle colors={themeColor}>{item.name}</ProductItemTitle>
         <CategoriesContainer colors={themeColor}>
           {item.tags.map((t) => (
             <span key={t}>{t}</span>
