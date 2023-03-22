@@ -30,11 +30,11 @@ const Footer = () => {
           />
         </a>
         <a
-          href='https://web.telegram.org/'
+          href='https://twitter.com/Fauxliage4Real'
           target='_blank'
         >
           <Icon
-            icon='ic:baseline-telegram'
+            icon='ant-design:twitter-outlined'
             width={36}
             height={36}
           />
