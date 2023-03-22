@@ -3,12 +3,9 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  // setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
-  // browserSessionPersistence,
-  // browserLocalPersistence,
 } from 'firebase/auth';
 import { auth } from './../../api/firebaseConfig';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
@@ -80,34 +77,6 @@ const Login = () => {
         console.log('Error Code:', err.code);
         console.log('Error Message:', err.message);
       });
-    // });
-
-    // signInWithEmailAndPassword(auth, emailAddress, password)
-    //   .then((userCredential) => {
-    //     // Signed in
-    //     const user = userCredential.user;
-    //     console.log('User:', user);
-    //     window.alert('Successfully signed in.');
-    //     setTheUser(user);
-    //   })
-    //   .catch((err) => {
-    //     if (err.code === 'auth/invalid-email') {
-    //       window.alert(
-    //         'Invalid email address. Please enter a valid email address.'
-    //       );
-    //       return;
-    //     }
-    //     if (err.code === 'auth/user-not-found') {
-    //       window.alert('User not found. Please try again.');
-    //       return;
-    //     }
-    //     if (err.code === 'auth/wrong-password') {
-    //       window.alert('Wrong password. Please try again.');
-    //       return;
-    //     }
-    //     console.log('Error Code:', err.code);
-    //     console.log('Error Message:', err.message);
-    //   });
   };
 
   /**
