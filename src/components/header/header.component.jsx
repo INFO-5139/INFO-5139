@@ -15,33 +15,47 @@ import {
 import { Icon } from '@iconify/react';
 import Navigation from '../navigation/navigation.component';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateIsActive } from '../../redux/cart/cart.reducer';
 import { auth } from './../../api/firebaseConfig';
+import { updateIsActive } from '../../redux/cart/cart.reducer';
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from '../theme-toggle/theme-toggle';
+import UserState from '../user-state/user-state.component';
 
 const Header = () => {
-  const [displayName, setDisplayName] = useState();
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const [userDisplayName, setUserDisplayName] = useState();
   const themeColor = useSelector((state) => state.theme);
+  const userLoggedIn = useSelector(
+    (state) => state.userState.userLoggedIn
+  );
+  const displayName = useSelector(
+    (state) => state.userState.DisplayName
+  );
+  let userDisplayName = displayName;
 
-  // console.log('first load from header: ', auth.currentUser);
+  console.log(userDisplayName);
 
-  // let userLoggedIn;
+  // useEffect(() => {
+  //   // userDisplayName = displayName;
+  //   console.log(displayName);
+  //   // console.log(userDisplayName);
+  // }, [displayName]);
 
-  auth.onAuthStateChanged((user) => {
-    if (user) {
-      setUserLoggedIn(true);
-      // userLoggedIn = true;
-      setDisplayName(auth.currentUser.displayName);
-      console.log(displayName);
-    }
-  });
+  // console.log(dis);
+
+  // setUserDisplayName(DisplayName);
+  // console.log('from header-component', displayName);
+  // const [displayName, setDisplayName] = useState();
+
+  // setDisplayName(auth.currentUser.displayName);
+  // console.log(displayName);
 
   const logout = async () => {
-    console.log('Here is the user before auth.signout: ', auth.currentUser);
+    console.log(
+      'Here is the user before auth.signout: ',
+      auth.currentUser
+    );
 
     // sign user out
     try {
@@ -54,6 +68,7 @@ const Header = () => {
 
   return (
     <HeaderContainer colors={themeColor}>
+      <UserState />
       <HeaderLeftPart>
         <StoreIcon colors={themeColor} />
         <Navigation />
@@ -68,7 +83,7 @@ const Header = () => {
           </LoginLink>
         )}
 
-        {userLoggedIn !== true && (
+        {userLoggedIn !== false && (
           <>
             <LogoutButton
               onClick={() => logout()}
@@ -78,7 +93,13 @@ const Header = () => {
             </LogoutButton>
             <DisplayName colors={themeColor}>
               <UserIcon colors={themeColor}></UserIcon>
-              <p>{displayName}</p>
+              {displayName !== false && (
+                <p>{displayName !== false ? 'No go' : 'Go'}</p>
+              )}
+              {displayName === false && (
+                <p>User info unable to load</p>
+              )}
+              {/* <p>{displayName}</p> */}
             </DisplayName>
           </>
         )}

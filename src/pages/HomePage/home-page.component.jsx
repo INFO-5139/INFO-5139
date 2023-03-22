@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   HomePageContainer,
   HeadingOne,
@@ -37,8 +37,9 @@ const HomePage = () => {
             Faux the real, go for <span>Fauxliage</span>
           </HeadingOne>
           <Paragraph colors={themeColor}>
-            Fake plants that look real. Now time to check new winter collection.
-            Say no to allergies and welcome new colours into your home.
+            Fake plants that look real. Now time to check new winter
+            collection. Say no to allergies and welcome new colours
+            into your home.
           </Paragraph>
           <div>
             <PrimaryButton
@@ -68,7 +69,9 @@ const HomePage = () => {
           />
         </ImageContainer>
       </FirstScreenContainer>
-      <HeadingTwo colors={themeColor}>Our winter collection</HeadingTwo>
+      <HeadingTwo colors={themeColor}>
+        Our winter collection
+      </HeadingTwo>
       <ProductList colors={themeColor}>
         {winterCollection.map((item) => (
           <ProductItem
