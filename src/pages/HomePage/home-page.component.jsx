@@ -25,7 +25,7 @@ const HomePage = () => {
   const winterCollection = useSelector(
     (state) => state.frontPageCollection.collection
   );
-  console.log('wintercoloection: ', winterCollection);
+  // console.log('wintercoloection: ', winterCollection);
 
   const navigate = useNavigate();
 

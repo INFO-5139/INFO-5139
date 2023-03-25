@@ -49,7 +49,9 @@ const Login = () => {
     // reset local state for any pre-exsiting users
     setTheUser('');
 
-    signInWithEmailAndPassword(auth, emailAddress, password)
+    // setPersistence(auth, browserLocalPersistence).then(() => {
+    // return signInWithEmailAndPassword(auth, emailAddress, password)
+    return signInWithEmailAndPassword(auth, emailAddress, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -87,8 +89,7 @@ const Login = () => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential =
-          GoogleAuthProvider.credentialFromResult(result);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
         setTheUser(user);
@@ -97,8 +98,7 @@ const Login = () => {
       })
       .catch((err) => {
         const email = err.customData.email;
-        const credential =
-          GoogleAuthProvider.credentialFromError(err);
+        const credential = GoogleAuthProvider.credentialFromError(err);
         console.log('Error Code:', err.code);
         console.log('Error Message:', err.message);
         console.log('Email:', email);
@@ -169,9 +169,7 @@ const Login = () => {
       >
         Sign in with Google
       </LoginGoogleButton>
-      <NoAccount colors={themeColor}>
-        Don't have an account?
-      </NoAccount>
+      <NoAccount colors={themeColor}>Don't have an account?</NoAccount>
       <SignUpLink>
         <Link
           to='/signup'
