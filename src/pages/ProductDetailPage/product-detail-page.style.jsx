@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ProductItemContainer = styled.div`
   box-sizing: border-box;
@@ -14,9 +14,8 @@ export const ProductItemContainer = styled.div`
   }
 `;
 
-export const ProductItem = styled.div`
+export const ProductItemOverview = styled.div`
   margin: 5% 0;
- 
 `;
 
 export const ProductItemTitle = styled.h4`
@@ -45,17 +44,14 @@ export const SalesPrice = styled.p`
   margin-top: 1%;
 `;
 
-
 export const ProductDescription = styled.p`
-  color: ${(props) => props.colors.textColor}; 
+  color: ${(props) => props.colors.textColor};
   width: 500px;
   height: 400px;
   margin-top: 5rem;
- 
- 
 `;
 
 export const RatingContainer = styled.div`
-display: flex;
-justify-content: space-between;
-`
+  display: flex;
+  justify-content: space-between;
+`;
