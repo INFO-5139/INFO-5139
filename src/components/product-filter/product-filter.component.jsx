@@ -1,10 +1,8 @@
 import { DropDownSelect } from './product-filter.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSelectedItem } from '../../redux/selectedItem/selectedItemSlice';
-// import { useState } from 'react';
 
 const ProductFilterSelection = () => {
-  // const [tagState, setTagState] = useState('');
   const dispatch = useDispatch();
   const TagsArray = useSelector(
     (state) => state.frontPageCollection.collection
@@ -21,7 +19,7 @@ const ProductFilterSelection = () => {
   }
 
   const uniqueTags = Array.from(TagsArraySet);
-  uniqueTags.splice(0, 0, '-- Please select an option --');
+  uniqueTags.splice(0, 0, 'All');
 
   return (
     <>
