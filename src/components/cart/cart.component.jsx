@@ -68,9 +68,11 @@ const Cart = () => {
             Total:
             <span>
               $
-              {cartItems
-                .reduce((acc, i) => (acc += i.price * i.quantity), 0)
-                .toFixed(2)}
+              {cartItems.length > 0
+                ? cartItems
+                    .reduce((acc, i) => (acc += i.price * i.quantity), 0)
+                    .toFixed(2)
+                : null}
             </span>
           </TotalText>
 
