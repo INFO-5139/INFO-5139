@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  item: '',
+  item: 'All',
 };
 
 export const selectedItemSlice = createSlice({
