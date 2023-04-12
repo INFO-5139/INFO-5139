@@ -1,6 +1,4 @@
-/** @format */
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -18,12 +16,27 @@ import { selectCartItems } from '../../redux/cart/cart.selector';
 import { updateCartItems } from '../../redux/cart/cart.reducer';
 import { incrementItemQuantity } from '../../redux/cart/cart.utils';
 import ItemRating from '../itemRating/ItemRating';
+import { auth, app2 } from '../../api/firebaseConfig';
+import { doc, setDoc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
 const ProductItem = ({ item }) => {
+  const [cartContentsChanged, setCartContentsChanged] = useState(false);
   const cartItems = useSelector(selectCartItems);
   const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
-  // console.log('item from inside product-item: ', item);
+  const database = getFirestore(app2);
+  const cartContents = useSelector((state) => state.cart.cartItems);
+
+  useEffect(() => {
+    if (auth && cartContentsChanged) {
+      setDoc(doc(database, 'Cart', auth.currentUser.email), {
+        ...cartContents,
+      });
+      setCartContentsChanged(false);
+    }
+    // eslint-disable-next-line
+  }, [cartContentsChanged]);
 
   const handleAddItemToCart = (e) => {
     e.preventDefault();
@@ -33,6 +46,9 @@ const ProductItem = ({ item }) => {
       dispatch(updateCartItems(newCartItems));
     } else {
       dispatch(updateCartItems([...cartItems, { ...item, quantity: 1 }]));
+    }
+    if (auth) {
+      setCartContentsChanged(true);
     }
   };
 
@@ -70,7 +86,9 @@ const ProductItem = ({ item }) => {
       </ProductLink>
       <ItemButton
         colors={themeColor}
-        onClick={handleAddItemToCart}
+        onClick={(e) => {
+          handleAddItemToCart(e);
+        }}
       >
         Add to cart
       </ItemButton>

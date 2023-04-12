@@ -14,11 +14,21 @@ import { updateCartItems, updateIsActive } from '../../redux/cart/cart.reducer';
 import CartItem from '../cart-item/cart-item.component';
 import { selectCartItems } from '../../redux/cart/cart.selector';
 import { useNavigate } from 'react-router-dom';
+import { auth, app2 } from '../../api/firebaseConfig';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
+
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const themeColor = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const database = getFirestore(app2);
+
+  const clearCartInDB = async () => {
+    await deleteDoc(doc(database, 'Cart', auth.currentUser.email));
+  };
+
   return (
     <>
       <Overlay
@@ -70,6 +80,7 @@ const Cart = () => {
               onClick={(e) => {
                 e.preventDefault();
                 dispatch(updateCartItems([]));
+                clearCartInDB();
               }}
             >
               Clear Cart
