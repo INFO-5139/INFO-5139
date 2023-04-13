@@ -14,6 +14,9 @@ import {
   ProductDescription,
   SalesPrice,
   RatingContainer,
+  SendButton,
+  FormStyle,
+  TextBox,
 } from "./product-detail-page.style";
 import { ProductList } from "../HomePage/home-page.styles.jsx";
 import ProductItem from "../../components/product-item/product-item.component.jsx";
@@ -39,6 +42,11 @@ export default function ItemDetailPage() {
   } else if (!collectionItem && salesItem) {
     item = salesItem;
   }
+
+  const submitReview = () => {
+    console.log("Submitted a Review");
+    alert("Review Submitted!");
+  };
 
   console.log("here is the item from productDetialPage: ", item);
   console.log("THIS IS ALSO BUY", alsoBuyItemsCollection);
@@ -80,7 +88,19 @@ export default function ItemDetailPage() {
           {item.description}
         </ProductDescription>
       </ProductItemContainer>
-
+      <FormStyle colors={themeColor}>
+        <form onSubmit={submitReview}>
+          <label>
+            <b>Add a review below:</b>
+          </label>
+          <TextBox>
+            <textarea name="message" />
+          </TextBox>
+          <SendButton colors={themeColor} onClick={submitReview}>
+            Submit Reivew!
+          </SendButton>
+        </form>
+      </FormStyle>
       <div
         style={{
           margin: "0 auto",
