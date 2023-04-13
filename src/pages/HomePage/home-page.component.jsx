@@ -26,6 +26,8 @@ const HomePage = () => {
   );
   const [filteredProducts, setFilteredProducts] = useState(winterCollection);
   const selectedTag = useSelector((state) => state.selectedItem.item);
+  const navigate = useNavigate();
+  const cartContents = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
     if (selectedTag === 'All') {
@@ -35,9 +37,7 @@ const HomePage = () => {
         winterCollection.filter((product) => product.tags.includes(selectedTag))
       );
     }
-  }, [selectedTag, winterCollection]);
-
-  const navigate = useNavigate();
+  }, [selectedTag, winterCollection, cartContents]);
 
   return (
     <HomePageContainer products={winterCollection}>
