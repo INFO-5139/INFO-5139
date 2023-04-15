@@ -34,3 +34,20 @@ export const HeaderStyle = styled.div`
   margin-top: 2vw;
   color: ${(props) => props.colors.textColor};
 `;
+
+export const PayButton = styled.button`
+  background-color: ${(props) => props.colors.solidButtonColor};
+  border-radius: 25px;
+  border: none;
+  padding: 1rem 0 1rem 0;
+  color: ${(props) => props.colors.solidButtonColorText};
+  margin-left: 2vw;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  // margin-bottom: 120%;
+  width: 10%;
+  text-align: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+`;
