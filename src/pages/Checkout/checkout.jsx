@@ -6,7 +6,6 @@ import { getFirestore } from 'firebase/firestore';
 import { auth, app2 } from '../../api/firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
-// import { Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import {
   FormStyle,
