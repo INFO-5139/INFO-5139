@@ -6,10 +6,13 @@ import { getFirestore } from 'firebase/firestore';
 import { auth, app2 } from '../../api/firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
+// import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   FormStyle,
   SendButton,
   HeaderStyle,
+  PayButton,
 } from './checkout.styles';
 
 const Checkout = () => {
@@ -20,6 +23,7 @@ const Checkout = () => {
   const [province, setProvince] = useState('');
   const [code, setCode] = useState('');
   const db = getFirestore(app2);
+  const navigate = useNavigate();
 
   const SaveToDB = async (e) => {
     e.preventDefault();
@@ -79,6 +83,15 @@ const Checkout = () => {
           >
             Save Address?
           </SendButton>
+          <PayButton
+            onClick={(e) => {
+              e.preventDefault();
+              navigate('/payment');
+            }}
+            colors={themeColor}
+          >
+            Pay for Cart
+          </PayButton>
         </form>
       </FormStyle>
     </>
