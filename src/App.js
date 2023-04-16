@@ -14,6 +14,8 @@ import AboutUs from './pages/AboutUs/about-us.component';
 import Account from './pages/Account/account';
 import Checkout from './pages/Checkout/checkout';
 import SalePage from './pages/Sale/sale.component';
+import BugReport from './pages/BugReport/bug-report';
+import Payment from './components/payment/payment.component';
 import ShopPage from './pages/Shop/shop-component';
 
 function App() {
@@ -47,7 +49,6 @@ function App() {
           path='account'
           element={<Account />}
         />
-
         <Route
           path='product/:id'
           element={<ProductDetailPage />}
@@ -57,12 +58,21 @@ function App() {
           element={<Checkout />}
         />
         <Route
+          path='payment'
+          element={<Payment />}
+        />
+        <Route
           path='sale'
           element={<SalePage />}
         />
         <Route
+          path='bug'
+          element={<BugReport />}
+        />
+        <Route
           path='shop'
-          element={<ShopPage />} />
+          element={<ShopPage />}
+        />
       </Routes>
       {isCartActive ? <Cart /> : ''}
       <Footer />

@@ -1,9 +1,9 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import ItemRating from "../../components/itemRating/ItemRating.js";
-import RateThisItem from "../../components/itemRating/RateThisItem.js";
+import ItemRating from '../../components/itemRating/ItemRating.js';
+import RateThisItem from '../../components/itemRating/RateThisItem.js';
 
 import {
   ProductItemTitle,
@@ -14,9 +14,12 @@ import {
   ProductDescription,
   SalesPrice,
   RatingContainer,
-} from "./product-detail-page.style";
-import { ProductList } from "../HomePage/home-page.styles.jsx";
-import ProductItem from "../../components/product-item/product-item.component.jsx";
+  SendButton,
+  FormStyle,
+  TextBox,
+} from './product-detail-page.style';
+import { ProductList } from '../HomePage/home-page.styles.jsx';
+import ProductItem from '../../components/product-item/product-item.component.jsx';
 
 export default function ItemDetailPage() {
   let item;
@@ -25,7 +28,9 @@ export default function ItemDetailPage() {
   const alsoBuyItemsCollection = useSelector(
     (state) => state.frontPageCollection.collection
   );
-const shopCollection = useSelector((state) => state.shopCollection.shopCollection.find((item) => item.id === params.id))
+  const shopCollection = useSelector((state) =>
+    state.shopCollection.shopCollection.find((item) => item.id === params.id)
+  );
   const collectionItem = useSelector((state) =>
     state.frontPageCollection.collection.find((item) => item.id === params.id)
   );
@@ -40,12 +45,17 @@ const shopCollection = useSelector((state) => state.shopCollection.shopCollectio
     item = salesItem;
   }
 
+  const submitReview = () => {
+    console.log('Submitted a Review');
+    alert('Review Submitted!');
+  };
+
   if (shopCollection) {
     item = shopCollection;
   }
 
-  console.log("here is the item from productDetialPage: ", item);
-  console.log("THIS IS ALSO BUY", alsoBuyItemsCollection);
+  console.log('here is the item from productDetialPage: ', item);
+  console.log('THIS IS ALSO BUY', alsoBuyItemsCollection);
 
   return (
     <>
@@ -53,7 +63,10 @@ const shopCollection = useSelector((state) => state.shopCollection.shopCollectio
         <ProductItemOverview>
           <ProductItemTitle colors={themeColor}>{item.name}</ProductItemTitle>
           <ProductImageContainer>
-            <img src={item.image} alt="cacuts" />
+            <img
+              src={item.image}
+              alt='cacuts'
+            />
           </ProductImageContainer>
           {collectionItem && (
             <ProductPrice colors={themeColor}>
@@ -75,7 +88,7 @@ const shopCollection = useSelector((state) => state.shopCollection.shopCollectio
           <RatingContainer>
             <ItemRating
               generalRating={item.generalRating}
-              title={"Rating:"}
+              title={'Rating:'}
             ></ItemRating>
             <RateThisItem id={item.id}></RateThisItem>
           </RatingContainer>
@@ -84,20 +97,38 @@ const shopCollection = useSelector((state) => state.shopCollection.shopCollectio
           {item.description}
         </ProductDescription>
       </ProductItemContainer>
-
+      <FormStyle colors={themeColor}>
+        <form onSubmit={submitReview}>
+          <label>
+            <b>Add a review below:</b>
+          </label>
+          <TextBox>
+            <textarea name='message' />
+          </TextBox>
+          <SendButton
+            colors={themeColor}
+            onClick={submitReview}
+          >
+            Submit Reivew!
+          </SendButton>
+        </form>
+      </FormStyle>
       <div
         style={{
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
           marginBottom: 30,
         }}
       >
         <h2 style={{ fontSize: 30, marginBottom: 20 }}>People also purchase</h2>
         <ProductList>
           {alsoBuyItemsCollection.map((item) => (
-            <ProductItem key={item.id} item={item} />
+            <ProductItem
+              key={item.id}
+              item={item}
+            />
           ))}
         </ProductList>
       </div>

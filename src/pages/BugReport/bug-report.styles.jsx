@@ -1,6 +1,6 @@
 /** @format */
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const FormStyle = styled.div`
   color: ${(props) => props.colors.textColor};
