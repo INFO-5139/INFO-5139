@@ -14,6 +14,7 @@ import AboutUs from './pages/AboutUs/about-us.component';
 import Account from './pages/Account/account';
 import Checkout from './pages/Checkout/checkout';
 import SalePage from './pages/Sale/sale.component';
+import ShopPage from './pages/Shop/shop-component';
 
 function App() {
   const isCartActive = useSelector(selectIsActive);
@@ -59,6 +60,9 @@ function App() {
           path='sale'
           element={<SalePage />}
         />
+        <Route
+          path='shop'
+          element={<ShopPage />} />
       </Routes>
       {isCartActive ? <Cart /> : ''}
       <Footer />

@@ -25,7 +25,7 @@ export default function ItemDetailPage() {
   const alsoBuyItemsCollection = useSelector(
     (state) => state.frontPageCollection.collection
   );
-
+const shopCollection = useSelector((state) => state.shopCollection.shopCollection.find((item) => item.id === params.id))
   const collectionItem = useSelector((state) =>
     state.frontPageCollection.collection.find((item) => item.id === params.id)
   );
@@ -38,6 +38,10 @@ export default function ItemDetailPage() {
     item = collectionItem;
   } else if (!collectionItem && salesItem) {
     item = salesItem;
+  }
+
+  if (shopCollection) {
+    item = shopCollection;
   }
 
   console.log("here is the item from productDetialPage: ", item);

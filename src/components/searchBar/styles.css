@@ -1,0 +1,30 @@
+.search {
+    margin-right: 4.8rem;
+}
+
+
+.search-bar {
+margin-right: 5px;
+padding: 2px;
+border-color: #43822c;
+border-radius: 4px;
+width: 240px;
+
+}
+
+.serach-button {
+    background-color: transparent;
+    padding: 2px;
+    border-radius: 4px;
+    width: 80px;
+    color:#325e22;
+    border-color: #325e22;
+    cursor: pointer;
+
+
+}
+button:hover {
+    background-color:#3a6e27;
+    color: white;
+    border-color: #3a6e27;
+}
