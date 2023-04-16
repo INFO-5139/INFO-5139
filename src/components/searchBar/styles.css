@@ -5,16 +5,17 @@
 
 .search-bar {
 margin-right: 5px;
-padding: 2px;
+padding: 5px;
 border-color: #43822c;
 border-radius: 4px;
 width: 240px;
+
 
 }
 
 .serach-button {
     background-color: transparent;
-    padding: 2px;
+    padding: 5px;
     border-radius: 4px;
     width: 80px;
     color:#325e22;
