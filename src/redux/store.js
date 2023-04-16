@@ -5,6 +5,7 @@ import userStateSlice from './userState/userStateSlice';
 import frontPageCollectionSlice from './frontPageCollection/frontPageCollectionSlice';
 import salesCollectionSlice from './SalesCollection/salesCollectionSlice';
 import selectedItemReducer from './selectedItem/selectedItemSlice';
+import shopCollectionSlice from './shopCollection/shopCollectionSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     salesCollection: salesCollectionSlice,
     userState: userStateSlice,
     selectedItem: selectedItemReducer,
+    shopCollection: shopCollectionSlice,
   },
 });

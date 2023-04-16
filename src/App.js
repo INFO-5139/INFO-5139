@@ -16,6 +16,7 @@ import Checkout from './pages/Checkout/checkout';
 import SalePage from './pages/Sale/sale.component';
 import BugReport from './pages/BugReport/bug-report';
 import Payment from './components/payment/payment.component';
+import ShopPage from './pages/Shop/shop-component';
 
 function App() {
   const isCartActive = useSelector(selectIsActive);
@@ -67,6 +68,10 @@ function App() {
         <Route
           path='bug'
           element={<BugReport />}
+        />
+        <Route
+          path='shop'
+          element={<ShopPage />}
         />
       </Routes>
       {isCartActive ? <Cart /> : ''}
